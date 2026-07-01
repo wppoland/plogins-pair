@@ -27,8 +27,8 @@ defined('ABSPATH') || exit;
 const VERSION     = '0.1.0';
 const PLUGIN_FILE = __FILE__;
 
-define('PAIR_DIR', plugin_dir_path(__FILE__));
-define('PAIR_URL', plugin_dir_url(__FILE__));
+define(__NAMESPACE__ . '\PAIR_DIR', plugin_dir_path(__FILE__));
+define(__NAMESPACE__ . '\PAIR_URL', plugin_dir_url(__FILE__));
 
 require_once __DIR__ . '/autoload.php';
 
@@ -56,6 +56,6 @@ add_action('plugins_loaded', static function (): void {
 }, 10);
 
 register_activation_hook(__FILE__, static function (): void {
-    require_once PLUGIN_DIR . '/autoload.php';
+    // autoload.php is already required above when this file loads.
     Plugin::instance()->container()->get(Migrator::class)->maybeMigrate();
 });
