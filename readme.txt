@@ -1,4 +1,4 @@
-=== Pair - Product Recommendations for WooCommerce ===
+=== Plogins Pair - Product Recommendations for WooCommerce ===
 Contributors: motylanogha
 Tags: woocommerce, product recommendations, related products, recently viewed, cross-sell
 Requires at least: 6.5
@@ -12,7 +12,7 @@ Automatic product recommendations for WooCommerce: "You may also like", cart cro
 
 == Description ==
 
-Pair adds automatic product recommendations to your WooCommerce store, with no manual setup. It helps shoppers discover more of your catalog while they browse and check out, which lifts average order value and keeps people moving toward the cart.
+Plogins Pair adds automatic product recommendations to your WooCommerce store, with no manual setup. It helps shoppers discover more of your catalog while they browse and check out, which lifts average order value and keeps people moving toward the cart.
 
 Out of the box you get three blocks:
 
@@ -43,8 +43,8 @@ Every strategy falls back to recent products, so a block is never awkwardly empt
 = Documentation and links =
 * **Documentation** - https://plogins.com/plogins-pair/docs/
 * **Plugin page** - https://plogins.com/plogins-pair/
-* **Source code** - https://github.com/wppoland/pair
-* **Bug reports and feature requests** - https://github.com/wppoland/pair/issues
+* **Source code** - https://github.com/wppoland/plogins-pair
+* **Bug reports and feature requests** - https://github.com/wppoland/plogins-pair/issues
 
 = Features =
 * Automatic "You may also like" block after the single product summary.
@@ -64,7 +64,7 @@ Every strategy falls back to recent products, so a block is never awkwardly empt
 == Installation ==
 
 1. Install and activate WooCommerce.
-2. Install Pair and activate it.
+2. Install Plogins Pair and activate it.
 3. Open WooCommerce -> Pair recommendations. Sensible defaults are set on activation; turn blocks on or off, pick a strategy, and set headings.
 
 == Frequently Asked Questions ==
