@@ -37,8 +37,8 @@ final class Settings implements HasHooks
     {
         add_submenu_page(
             'woocommerce',
-            __('Pair recommendations', 'plogins-pair'),
-            __('Pair recommendations', 'plogins-pair'),
+            __('Pair recommendations', 'pair'),
+            __('Pair recommendations', 'pair'),
             'manage_woocommerce',
             self::PAGE,
             [$this, 'renderPage'],
@@ -128,11 +128,11 @@ final class Settings implements HasHooks
     private function strategyLabels(): array
     {
         return [
-            'related'     => __('Same category (by popularity)', 'plogins-pair'),
-            'tags'        => __('Shared tags', 'plogins-pair'),
-            'bestsellers' => __('Best sellers', 'plogins-pair'),
-            'newest'      => __('Newest products', 'plogins-pair'),
-            'recently'    => __('Recently viewed by the shopper', 'plogins-pair'),
+            'related'     => __('Same category (by popularity)', 'pair'),
+            'tags'        => __('Shared tags', 'pair'),
+            'bestsellers' => __('Best sellers', 'pair'),
+            'newest'      => __('Newest products', 'pair'),
+            'recently'    => __('Recently viewed by the shopper', 'pair'),
         ];
     }
 
