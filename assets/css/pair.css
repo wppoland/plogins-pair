@@ -1,0 +1,16 @@
+.pair-recommendations {
+    margin: 2.5rem 0 1rem;
+    clear: both;
+}
+
+.pair-recommendations__title {
+    margin: 0 0 1rem;
+    font-size: 1.25rem;
+    line-height: 1.2;
+}
+
+/* Reserve vertical rhythm so the block never causes layout shift as images
+   load; the product cards themselves are rendered by the active theme. */
+.pair-recommendations .products {
+    margin-bottom: 0;
+}
