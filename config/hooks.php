@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 use Pair\Admin\Settings;
 use Pair\Service\RecommendationsService;
+use Pair\Service\Tracker;
 
 defined('ABSPATH') || exit;
 
@@ -22,5 +23,6 @@ return is_admin()
         Settings::class,
     ]
     : [
+        Tracker::class,
         RecommendationsService::class,
     ];

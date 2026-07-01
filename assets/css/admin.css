@@ -1,0 +1,103 @@
+.pair-settings .pair-intro { max-width: 46rem; color: #50575e; }
+
+.pair-settings h1 .pair-logo {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    vertical-align: -4px;
+    border-radius: 6px;
+    background: #020617;
+    position: relative;
+}
+.pair-settings h1 .pair-logo::before {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+}
+.pair-settings h1 .pair-logo::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 50%;
+    width: 2px;
+    height: 8px;
+    background: #34d399;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.pair-master {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 12px 0 4px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.pair-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 16px;
+    margin: 16px 0;
+    max-width: 1040px;
+}
+
+.pair-card {
+    background: #fff;
+    border: 1px solid #dcdcde;
+    border-radius: 10px;
+    padding: 16px 18px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .04);
+}
+.pair-card--muted { background: #f6f7f7; max-width: 1040px; }
+.pair-card > header { display: flex; flex-direction: column; gap: 8px; margin-bottom: 8px; }
+.pair-card h2 { margin: 0; font-size: 15px; }
+
+.pair-switch { display: inline-flex; align-items: center; gap: 8px; font-weight: 500; }
+
+.pair-fields { border-top: 1px solid #f0f0f1; padding-top: 12px; }
+.pair-fields p { margin: 0 0 12px; }
+.pair-fields label { display: inline-block; min-width: 0; margin-right: 6px; font-weight: 500; }
+.pair-fields select, .pair-fields input[type="number"] { min-width: 220px; }
+.pair-fields[hidden] { display: none; }
+
+.pair-help {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    margin-left: 6px;
+    border-radius: 50%;
+    background: #e0e7ff;
+    color: #3730a3;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: help;
+    position: relative;
+}
+.pair-help:hover, .pair-help:focus { background: #c7d2fe; outline: none; }
+.pair-help::after {
+    content: attr(data-pair-help);
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 8px);
+    transform: translateX(-50%);
+    width: 240px;
+    background: #1d2327;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.4;
+    padding: 8px 10px;
+    border-radius: 6px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .12s ease;
+    z-index: 20;
+    pointer-events: none;
+}
+.pair-help:hover::after, .pair-help:focus::after { opacity: 1; visibility: visible; }

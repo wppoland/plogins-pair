@@ -9,8 +9,20 @@
     line-height: 1.2;
 }
 
-/* Reserve vertical rhythm so the block never causes layout shift as images
-   load; the product cards themselves are rendered by the active theme. */
+.pair-recommendations--recently .pair-recommendations__title,
+.pair-recommendations--cart .pair-recommendations__title {
+    font-size: 1.15rem;
+}
+
+/* The product cards are rendered by the active theme; keep our wrapper from
+   adding extra bottom margin so the block sits flush with the theme rhythm. */
 .pair-recommendations .products {
     margin-bottom: 0;
+}
+
+/* A light divider above the block so it reads as a distinct section without
+   depending on theme styles. */
+.pair-recommendations {
+    border-top: 1px solid rgba(0, 0, 0, .08);
+    padding-top: 1.75rem;
 }

@@ -9,106 +9,133 @@ defined('ABSPATH') || exit;
 /**
  * Computes product recommendations from WooCommerce data at request time.
  *
- * FREE strategy: products that share a category with the seed (a product being
- * viewed, or the items in the cart), ordered by popularity (total sales), with
- * a sensible fallback to recent products so the block is never empty. No custom
- * tables and no order-history mining (that is the PRO "frequently bought
- * together" territory).
+ * Strategies (FREE):
+ *   related      - products sharing the seed's categories, by popularity
+ *   tags         - products sharing the seed's tags, by popularity
+ *   bestsellers  - top sellers (optionally within the seed's categories)
+ *   newest       - most recently published products
+ *   recently     - products the visitor recently viewed
+ *
+ * Every strategy falls back to recent products so a block is never empty. No
+ * custom tables and no order-history mining (that is PRO territory).
  */
 final class Recommender
 {
-    /**
-     * Recommendations for a single product page ("You may also like").
-     *
-     * @return array<int, \WC_Product>
-     */
-    public function forProduct(\WC_Product $product, int $limit, bool $inStockOnly): array
-    {
-        $categoryIds = $this->categoryIds([$product->get_id()]);
+    public const STRATEGIES = ['related', 'tags', 'bestsellers', 'newest', 'recently'];
 
-        return $this->query(
-            $categoryIds,
-            [$product->get_id()],
-            $limit,
-            $inStockOnly,
-        );
+    public function __construct(private readonly Tracker $tracker)
+    {
     }
 
     /**
-     * Recommendations for the cart (cross-sell suggestions), based on the
-     * categories of the items already in the cart, excluding those items.
-     *
-     * @param array<int, int> $cartProductIds
-     * @return array<int, \WC_Product>
-     */
-    public function forCart(array $cartProductIds, int $limit, bool $inStockOnly): array
-    {
-        if ($cartProductIds === []) {
-            return [];
-        }
-
-        $categoryIds = $this->categoryIds($cartProductIds);
-
-        return $this->query(
-            $categoryIds,
-            $cartProductIds,
-            $limit,
-            $inStockOnly,
-        );
-    }
-
-    /**
-     * @param array<int, int> $productIds
-     * @return array<int, int>
-     */
-    private function categoryIds(array $productIds): array
-    {
-        $ids = [];
-        foreach ($productIds as $productId) {
-            $terms = wc_get_product_term_ids($productId, 'product_cat');
-            if (is_array($terms)) {
-                foreach ($terms as $termId) {
-                    $ids[(int) $termId] = (int) $termId;
-                }
-            }
-        }
-
-        return array_values($ids);
-    }
-
-    /**
-     * @param array<int, int> $categoryIds
+     * @param array<int, int> $seedIds   product(s) driving the recommendation (viewed product, or cart items)
      * @param array<int, int> $excludeIds
      * @return array<int, \WC_Product>
      */
-    private function query(array $categoryIds, array $excludeIds, int $limit, bool $inStockOnly): array
+    public function recommend(string $strategy, array $seedIds, int $limit, bool $inStockOnly, array $excludeIds = []): array
     {
-        $limit = max(1, min(12, $limit));
+        $limit   = max(1, min(12, $limit));
+        $strategy = in_array($strategy, self::STRATEGIES, true) ? $strategy : 'related';
+        $exclude = array_values(array_unique(array_map('intval', array_merge($seedIds, $excludeIds))));
+
+        $products = match ($strategy) {
+            'recently'    => $this->recentlyViewed($limit, $inStockOnly, $exclude),
+            'newest'      => $this->byQuery([], $exclude, $limit, $inStockOnly, 'date'),
+            'bestsellers' => $this->byQuery($this->categoryIds($seedIds), $exclude, $limit, $inStockOnly, 'popularity'),
+            'tags'        => $this->byTerms('product_tag', $this->termIds($seedIds, 'product_tag'), $exclude, $limit, $inStockOnly),
+            default       => $this->byTerms('product_cat', $this->categoryIds($seedIds), $exclude, $limit, $inStockOnly),
+        };
+
+        if (count($products) < $limit) {
+            $products = array_merge(
+                $products,
+                $this->byQuery(
+                    [],
+                    array_merge($exclude, array_map(static fn (\WC_Product $p): int => $p->get_id(), $products)),
+                    $limit - count($products),
+                    $inStockOnly,
+                    'date',
+                ),
+            );
+        }
+
+        return array_values($products);
+    }
+
+    /**
+     * @param array<int, int> $exclude
+     * @return array<int, \WC_Product>
+     */
+    private function recentlyViewed(int $limit, bool $inStockOnly, array $exclude): array
+    {
+        $ids = array_values(array_diff($this->tracker->ids(), $exclude));
+        if ($ids === []) {
+            return [];
+        }
+
+        $ids = array_slice($ids, 0, $limit);
+
+        $products = wc_get_products([
+            'status'       => 'publish',
+            'include'      => $ids,
+            'orderby'      => 'include',
+            'limit'        => $limit,
+            'stock_status' => $inStockOnly ? 'instock' : '',
+            'visibility'   => 'catalog',
+            'return'       => 'objects',
+        ]);
+
+        return is_array($products) ? $products : [];
+    }
+
+    /**
+     * @param array<int, int> $termIds
+     * @param array<int, int> $exclude
+     * @return array<int, \WC_Product>
+     */
+    private function byTerms(string $taxonomy, array $termIds, array $exclude, int $limit, bool $inStockOnly): array
+    {
+        if ($termIds === []) {
+            return [];
+        }
+
+        return $this->byQuery($termIds, $exclude, $limit, $inStockOnly, 'popularity', $taxonomy);
+    }
+
+    /**
+     * @param array<int, int> $termIds    when non-empty, restrict to these taxonomy terms
+     * @param array<int, int> $exclude
+     * @return array<int, \WC_Product>
+     */
+    private function byQuery(array $termIds, array $exclude, int $limit, bool $inStockOnly, string $orderby, string $taxonomy = 'product_cat'): array
+    {
+        if ($limit < 1) {
+            return [];
+        }
 
         $args = [
-            'status'  => 'publish',
-            'limit'   => $limit,
-            'exclude' => array_values(array_unique(array_map('intval', $excludeIds))),
-            'orderby' => 'meta_value_num',
-            'meta_key' => 'total_sales', // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key -- popularity sort, bounded by limit.
-            'order'   => 'DESC',
+            'status'     => 'publish',
+            'limit'      => $limit,
+            'exclude'    => array_values(array_unique(array_map('intval', $exclude))),
             'visibility' => 'catalog',
-            'return'  => 'objects',
+            'return'     => 'objects',
         ];
 
-        if ($categoryIds !== []) {
-            $args['category'] = array_map(
-                static fn (int $id): string => (string) $id,
-                $categoryIds,
-            );
-            // wc_get_products expects category slugs OR term ids via tax_query;
-            // pass ids through a tax_query for reliability across setups.
-            unset($args['category']);
+        if ($orderby === 'popularity') {
+            $args['orderby']  = 'meta_value_num';
+            $args['meta_key'] = 'total_sales'; // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key -- popularity sort, bounded by limit.
+            $args['order']    = 'DESC';
+        } else {
+            $args['orderby'] = 'date';
+            $args['order']   = 'DESC';
+        }
+
+        if ($termIds !== []) {
             $args['tax_query'] = [ // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query -- bounded by limit.
                 [
-                    'taxonomy' => 'product_cat',
+                    'taxonomy' => $taxonomy,
                     'field'    => 'term_id',
-                    'terms'    => $categoryIds,
+                    'terms'    => $termIds,
                 ],
             ];
         }
@@ -117,29 +144,36 @@ final class Recommender
             $args['stock_status'] = 'instock';
         }
 
-        /** @var array<int, \WC_Product> $products */
         $products = wc_get_products($args);
 
-        // Fallback: never render an empty block. Fill with recent products.
-        if (count($products) < $limit) {
-            $fallback = wc_get_products([
-                'status'     => 'publish',
-                'limit'      => $limit - count($products),
-                'exclude'    => array_values(array_unique(array_merge(
-                    array_map('intval', $excludeIds),
-                    array_map(static fn (\WC_Product $p): int => $p->get_id(), $products),
-                ))),
-                'orderby'    => 'date',
-                'order'      => 'DESC',
-                'visibility' => 'catalog',
-                'stock_status' => $inStockOnly ? 'instock' : '',
-                'return'     => 'objects',
-            ]);
-            if (is_array($fallback)) {
-                $products = array_merge($products, $fallback);
+        return is_array($products) ? $products : [];
+    }
+
+    /**
+     * @param array<int, int> $productIds
+     * @return array<int, int>
+     */
+    private function categoryIds(array $productIds): array
+    {
+        return $this->termIds($productIds, 'product_cat');
+    }
+
+    /**
+     * @param array<int, int> $productIds
+     * @return array<int, int>
+     */
+    private function termIds(array $productIds, string $taxonomy): array
+    {
+        $ids = [];
+        foreach ($productIds as $productId) {
+            $terms = wc_get_product_term_ids((int) $productId, $taxonomy);
+            if (is_array($terms)) {
+                foreach ($terms as $termId) {
+                    $ids[(int) $termId] = (int) $termId;
+                }
             }
         }
 
-        return array_values($products);
+        return array_values($ids);
     }
 }

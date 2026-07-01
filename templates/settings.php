@@ -4,53 +4,137 @@
  *
  * @package Pair
  *
- * @var array<string, mixed> $s
+ * @var array<string, mixed>  $s
+ * @var array<string, string> $strategies
  */
 
 declare(strict_types=1);
 
 defined('ABSPATH') || exit;
+
+/** Render a strategy <select>. */
+$pair_strategy_select = static function (string $name, string $current) use ($strategies): void {
+    echo '<select name="pair_settings[' . esc_attr($name) . ']">';
+    foreach ($strategies as $value => $label) {
+        printf(
+            '<option value="%s"%s>%s</option>',
+            esc_attr($value),
+            selected($current, $value, false),
+            esc_html($label),
+        );
+    }
+    echo '</select>';
+};
+
+/** A small help tooltip. */
+$pair_help = static function (string $text): void {
+    echo '<span class="pair-help" tabindex="0" aria-label="' . esc_attr($text) . '" data-pair-help="' . esc_attr($text) . '">?</span>';
+};
 ?>
-<div class="wrap">
-    <h1><?php echo esc_html__('Pair recommendations', 'plogins-pair'); ?></h1>
-    <p><?php echo esc_html__('Automatic product recommendations. A "You may also like" block appears after the product summary, and cross-sell suggestions appear under the cart. Products are picked from the same categories, ordered by popularity.', 'plogins-pair'); ?></p>
+<div class="wrap pair-settings">
+    <h1><span class="pair-logo" aria-hidden="true"></span> <?php echo esc_html__('Pair recommendations', 'plogins-pair'); ?></h1>
+    <p class="pair-intro"><?php echo esc_html__('Automatic product recommendations. Blocks are rendered with your theme\'s product cards, so they match your shop. Pick where they appear and how the products are chosen.', 'plogins-pair'); ?></p>
 
     <form action="options.php" method="post">
         <?php settings_fields('pair-settings'); ?>
-        <table class="form-table" role="presentation">
-            <tr>
-                <th scope="row"><?php echo esc_html__('Enable recommendations', 'plogins-pair'); ?></th>
-                <td>
-                    <label><input type="checkbox" name="pair_settings[enabled]" value="1" <?php checked(! empty($s['enabled'])); ?> /> <?php echo esc_html__('Show recommendation blocks on the storefront', 'plogins-pair'); ?></label>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row"><?php echo esc_html__('Placements', 'plogins-pair'); ?></th>
-                <td>
-                    <label><input type="checkbox" name="pair_settings[show_on_single]" value="1" <?php checked(! empty($s['show_on_single'])); ?> /> <?php echo esc_html__('On the single product page', 'plogins-pair'); ?></label><br />
-                    <label><input type="checkbox" name="pair_settings[show_on_cart]" value="1" <?php checked(! empty($s['show_on_cart'])); ?> /> <?php echo esc_html__('Under the cart', 'plogins-pair'); ?></label><br />
-                    <label><input type="checkbox" name="pair_settings[in_stock_only]" value="1" <?php checked(! empty($s['in_stock_only'])); ?> /> <?php echo esc_html__('Only recommend products that are in stock', 'plogins-pair'); ?></label>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row"><label for="pair_count"><?php echo esc_html__('Number of products', 'plogins-pair'); ?></label></th>
-                <td><input type="number" id="pair_count" name="pair_settings[count]" min="1" max="12" value="<?php echo esc_attr((string) (int) $s['count']); ?>" /></td>
-            </tr>
-            <tr>
-                <th scope="row"><label for="pair_columns"><?php echo esc_html__('Columns', 'plogins-pair'); ?></label></th>
-                <td><input type="number" id="pair_columns" name="pair_settings[columns]" min="1" max="6" value="<?php echo esc_attr((string) (int) $s['columns']); ?>" /></td>
-            </tr>
-            <tr>
-                <th scope="row"><label for="pair_heading_single"><?php echo esc_html__('Product-page heading', 'plogins-pair'); ?></label></th>
-                <td><input type="text" id="pair_heading_single" class="regular-text" name="pair_settings[heading_single]" value="<?php echo esc_attr((string) $s['heading_single']); ?>" /></td>
-            </tr>
-            <tr>
-                <th scope="row"><label for="pair_heading_cart"><?php echo esc_html__('Cart heading', 'plogins-pair'); ?></label></th>
-                <td><input type="text" id="pair_heading_cart" class="regular-text" name="pair_settings[heading_cart]" value="<?php echo esc_attr((string) $s['heading_cart']); ?>" /></td>
-            </tr>
-        </table>
+
+        <label class="pair-master">
+            <input type="checkbox" name="pair_settings[enabled]" value="1" <?php checked(! empty($s['enabled'])); ?> />
+            <span><?php echo esc_html__('Enable Pair on the storefront', 'plogins-pair'); ?></span>
+        </label>
+
+        <div class="pair-cards">
+
+            <section class="pair-card" data-pair-section>
+                <header>
+                    <h2><?php echo esc_html__('Product page', 'plogins-pair'); ?></h2>
+                    <label class="pair-switch">
+                        <input type="checkbox" name="pair_settings[show_on_single]" value="1" data-pair-toggle="single" <?php checked(! empty($s['show_on_single'])); ?> />
+                        <span><?php echo esc_html__('Show "You may also like"', 'plogins-pair'); ?></span>
+                    </label>
+                </header>
+                <div class="pair-fields" data-pair-panel="single">
+                    <p>
+                        <label><?php echo esc_html__('How to choose products', 'plogins-pair'); ?></label>
+                        <?php $pair_strategy_select('single_strategy', (string) $s['single_strategy']); ?>
+                        <?php $pair_help(__('Related uses the product\'s categories, ordered by popularity. Others use tags, best sellers, newest, or what the shopper recently viewed.', 'plogins-pair')); ?>
+                    </p>
+                    <p>
+                        <label for="pair_single_heading"><?php echo esc_html__('Heading', 'plogins-pair'); ?></label>
+                        <input type="text" id="pair_single_heading" class="regular-text" name="pair_settings[single_heading]" value="<?php echo esc_attr((string) $s['single_heading']); ?>" />
+                    </p>
+                </div>
+            </section>
+
+            <section class="pair-card" data-pair-section>
+                <header>
+                    <h2><?php echo esc_html__('Cart', 'plogins-pair'); ?></h2>
+                    <label class="pair-switch">
+                        <input type="checkbox" name="pair_settings[show_on_cart]" value="1" data-pair-toggle="cart" <?php checked(! empty($s['show_on_cart'])); ?> />
+                        <span><?php echo esc_html__('Show cross-sell suggestions', 'plogins-pair'); ?></span>
+                    </label>
+                </header>
+                <div class="pair-fields" data-pair-panel="cart">
+                    <p>
+                        <label><?php echo esc_html__('How to choose products', 'plogins-pair'); ?></label>
+                        <?php $pair_strategy_select('cart_strategy', (string) $s['cart_strategy']); ?>
+                        <?php $pair_help(__('Based on the categories of the items already in the cart, excluding those items.', 'plogins-pair')); ?>
+                    </p>
+                    <p>
+                        <label for="pair_cart_heading"><?php echo esc_html__('Heading', 'plogins-pair'); ?></label>
+                        <input type="text" id="pair_cart_heading" class="regular-text" name="pair_settings[cart_heading]" value="<?php echo esc_attr((string) $s['cart_heading']); ?>" />
+                    </p>
+                </div>
+            </section>
+
+            <section class="pair-card" data-pair-section>
+                <header>
+                    <h2><?php echo esc_html__('Recently viewed', 'plogins-pair'); ?></h2>
+                    <label class="pair-switch">
+                        <input type="checkbox" name="pair_settings[show_recently_viewed]" value="1" data-pair-toggle="recently" <?php checked(! empty($s['show_recently_viewed'])); ?> />
+                        <span><?php echo esc_html__('Show recently viewed products', 'plogins-pair'); ?></span>
+                        <?php $pair_help(__('Tracks the products a visitor views in a first-party cookie (product IDs only) and shows them again. Nothing is sent anywhere.', 'plogins-pair')); ?>
+                    </label>
+                </header>
+                <div class="pair-fields" data-pair-panel="recently">
+                    <p>
+                        <label><input type="checkbox" name="pair_settings[recently_on_single]" value="1" <?php checked(! empty($s['recently_on_single'])); ?> /> <?php echo esc_html__('On product pages', 'plogins-pair'); ?></label><br />
+                        <label><input type="checkbox" name="pair_settings[recently_on_cart]" value="1" <?php checked(! empty($s['recently_on_cart'])); ?> /> <?php echo esc_html__('On the cart', 'plogins-pair'); ?></label>
+                    </p>
+                    <p>
+                        <label for="pair_recently_heading"><?php echo esc_html__('Heading', 'plogins-pair'); ?></label>
+                        <input type="text" id="pair_recently_heading" class="regular-text" name="pair_settings[recently_heading]" value="<?php echo esc_attr((string) $s['recently_heading']); ?>" />
+                    </p>
+                </div>
+            </section>
+
+            <section class="pair-card">
+                <header><h2><?php echo esc_html__('Display', 'plogins-pair'); ?></h2></header>
+                <div class="pair-fields">
+                    <p>
+                        <label for="pair_count"><?php echo esc_html__('Products per block', 'plogins-pair'); ?></label>
+                        <input type="number" id="pair_count" name="pair_settings[count]" min="1" max="12" value="<?php echo esc_attr((string) (int) $s['count']); ?>" />
+                    </p>
+                    <p>
+                        <label for="pair_columns"><?php echo esc_html__('Columns', 'plogins-pair'); ?></label>
+                        <input type="number" id="pair_columns" name="pair_settings[columns]" min="1" max="6" value="<?php echo esc_attr((string) (int) $s['columns']); ?>" />
+                    </p>
+                    <p>
+                        <label><input type="checkbox" name="pair_settings[in_stock_only]" value="1" <?php checked(! empty($s['in_stock_only'])); ?> /> <?php echo esc_html__('Only recommend products that are in stock', 'plogins-pair'); ?></label>
+                    </p>
+                </div>
+            </section>
+
+        </div>
+
         <?php submit_button(); ?>
     </form>
 
-    <p><?php echo esc_html__('Tip: you can also place a block anywhere with the shortcode', 'plogins-pair'); ?> <code>[pair_recommendations]</code>.</p>
+    <div class="pair-card pair-card--muted">
+        <header><h2><?php echo esc_html__('Shortcodes', 'plogins-pair'); ?></h2></header>
+        <div class="pair-fields">
+            <p><?php echo esc_html__('Place a recommendation block anywhere:', 'plogins-pair'); ?> <code>[pair_recommendations strategy="related" count="4" columns="4"]</code></p>
+            <p><?php echo esc_html__('Place a recently viewed block anywhere:', 'plogins-pair'); ?> <code>[pair_recently_viewed count="4"]</code></p>
+        </div>
+    </div>
 </div>

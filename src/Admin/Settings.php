@@ -6,23 +6,31 @@ namespace Pair\Admin;
 
 use Pair\Contract\HasHooks;
 use Pair\Migrator;
+use Pair\Service\Recommender;
 
 use const Pair\PAIR_DIR;
+use const Pair\PAIR_URL;
+use const Pair\VERSION;
 
 defined('ABSPATH') || exit;
 
 /**
- * A single settings screen under the WooCommerce menu.
+ * A single, sectioned settings screen under the WooCommerce menu, with inline
+ * help and fields that reveal themselves as you enable each block.
  */
 final class Settings implements HasHooks
 {
     private const PAGE   = 'pair-settings';
     private const OPTION = Migrator::OPTION_SETTINGS;
 
+    /** @var array<int, string> */
+    private const STRATEGIES = Recommender::STRATEGIES;
+
     public function registerHooks(): void
     {
         add_action('admin_menu', [$this, 'addMenuPage']);
         add_action('admin_init', [$this, 'registerSettings']);
+        add_action('admin_enqueue_scripts', [$this, 'enqueueAssets']);
     }
 
     public function addMenuPage(): void
@@ -35,6 +43,16 @@ final class Settings implements HasHooks
             self::PAGE,
             [$this, 'renderPage'],
         );
+    }
+
+    public function enqueueAssets(string $hook): void
+    {
+        if ($hook !== 'woocommerce_page_' . self::PAGE) {
+            return;
+        }
+
+        wp_enqueue_style('pair-admin', PAIR_URL . 'assets/css/admin.css', [], VERSION);
+        wp_enqueue_script('pair-admin', PAIR_URL . 'assets/js/admin.js', [], VERSION, true);
     }
 
     public function registerSettings(): void
@@ -64,15 +82,29 @@ final class Settings implements HasHooks
             $raw = [];
         }
 
+        $strategy = static function (mixed $value): string {
+            $value = is_string($value) ? sanitize_key($value) : 'related';
+
+            return in_array($value, self::STRATEGIES, true) ? $value : 'related';
+        };
+
+        $text = static fn (mixed $value): string => isset($value) ? sanitize_text_field((string) $value) : '';
+
         return [
-            'enabled'        => ! empty($raw['enabled']),
-            'show_on_single' => ! empty($raw['show_on_single']),
-            'show_on_cart'   => ! empty($raw['show_on_cart']),
-            'in_stock_only'  => ! empty($raw['in_stock_only']),
-            'count'          => max(1, min(12, isset($raw['count']) ? (int) $raw['count'] : 3)),
-            'columns'        => max(1, min(6, isset($raw['columns']) ? (int) $raw['columns'] : 3)),
-            'heading_single' => isset($raw['heading_single']) ? sanitize_text_field((string) $raw['heading_single']) : '',
-            'heading_cart'   => isset($raw['heading_cart']) ? sanitize_text_field((string) $raw['heading_cart']) : '',
+            'enabled'              => ! empty($raw['enabled']),
+            'show_on_single'       => ! empty($raw['show_on_single']),
+            'single_strategy'      => $strategy($raw['single_strategy'] ?? 'related'),
+            'single_heading'       => $text($raw['single_heading'] ?? ''),
+            'show_on_cart'         => ! empty($raw['show_on_cart']),
+            'cart_strategy'        => $strategy($raw['cart_strategy'] ?? 'related'),
+            'cart_heading'         => $text($raw['cart_heading'] ?? ''),
+            'show_recently_viewed' => ! empty($raw['show_recently_viewed']),
+            'recently_on_single'   => ! empty($raw['recently_on_single']),
+            'recently_on_cart'     => ! empty($raw['recently_on_cart']),
+            'recently_heading'     => $text($raw['recently_heading'] ?? ''),
+            'count'                => max(1, min(12, isset($raw['count']) ? (int) $raw['count'] : 3)),
+            'columns'              => max(1, min(6, isset($raw['columns']) ? (int) $raw['columns'] : 3)),
+            'in_stock_only'        => ! empty($raw['in_stock_only']),
         ];
     }
 
@@ -82,9 +114,26 @@ final class Settings implements HasHooks
             return;
         }
 
-        $s = $this->settings();
+        $s          = $this->settings();
+        $strategies = $this->strategyLabels();
 
         require PAIR_DIR . 'templates/settings.php';
+    }
+
+    /**
+     * Human labels for the strategy select.
+     *
+     * @return array<string, string>
+     */
+    private function strategyLabels(): array
+    {
+        return [
+            'related'     => __('Same category (by popularity)', 'plogins-pair'),
+            'tags'        => __('Shared tags', 'plogins-pair'),
+            'bestsellers' => __('Best sellers', 'plogins-pair'),
+            'newest'      => __('Newest products', 'plogins-pair'),
+            'recently'    => __('Recently viewed by the shopper', 'plogins-pair'),
+        ];
     }
 
     /**

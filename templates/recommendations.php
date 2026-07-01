@@ -9,6 +9,7 @@
  * @var array<int, \WC_Product> $products
  * @var string                  $heading
  * @var int                     $columns
+ * @var string                  $context  one of: single, cart, recently
  */
 
 declare(strict_types=1);
@@ -19,9 +20,11 @@ if (! isset($products) || ! is_array($products) || $products === []) {
     return;
 }
 
+$pair_context = isset($context) && is_string($context) ? sanitize_html_class($context) : 'single';
+
 wc_set_loop_prop('columns', (int) $columns);
 ?>
-<section class="pair-recommendations" aria-label="<?php echo esc_attr($heading !== '' ? $heading : __('Recommended products', 'plogins-pair')); ?>">
+<section class="pair-recommendations pair-recommendations--<?php echo esc_attr($pair_context); ?>" aria-label="<?php echo esc_attr($heading !== '' ? $heading : __('Recommended products', 'plogins-pair')); ?>">
     <?php if ($heading !== '') : ?>
         <h2 class="pair-recommendations__title"><?php echo esc_html($heading); ?></h2>
     <?php endif; ?>
