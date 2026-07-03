@@ -101,3 +101,84 @@
     pointer-events: none;
 }
 .pair-help:hover::after, .pair-help:focus::after { opacity: 1; visibility: visible; }
+
+/* ------------------------------------------------------------------
+ * PRO upsell: dismissible top banner, sidebar promo aside, and
+ * "what PRO adds" locked cards. Pure advertising (no disabled inputs),
+ * scoped to .pair-settings, using the plugin's own indigo accent. The
+ * buttons use the darker --pair-admin-accent-text (#3730a3) so white
+ * text clears WCAG AA; the lighter accent is decorative only.
+ * ------------------------------------------------------------------ */
+.pair-settings {
+    --pair-admin-accent: #4f46e5;
+    --pair-admin-accent-text: #3730a3;
+    --pair-pro-muted: #646970;
+    --pair-pro-radius: 10px;
+    --pair-pro-radius-sm: 8px;
+    --pair-pro-gap: 20px;
+}
+
+/* Two-column wrapper (form + promo aside); single column on narrow screens. */
+.pair-settings .pair-cols { display: grid; gap: var(--pair-pro-gap); grid-template-columns: 1fr; align-items: start; }
+@media (min-width: 1100px) {
+    .pair-settings .pair-cols { grid-template-columns: minmax(0, 1fr) 300px; }
+}
+
+/* Top banner */
+.pair-settings .pair-pro-banner {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 12px 0 var(--pair-pro-gap);
+    padding: 12px 16px;
+    border: 1px solid color-mix(in srgb, var(--pair-admin-accent) 30%, #dcdcde);
+    border-inline-start: 4px solid var(--pair-admin-accent);
+    border-radius: var(--pair-pro-radius);
+    background: color-mix(in srgb, var(--pair-admin-accent) 7%, #fff);
+}
+.pair-settings .pair-pro-banner__tag,
+.pair-settings .pair-pro-card__badge,
+.pair-settings .pair-pro-aside__eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+}
+.pair-settings .pair-pro-banner__tag { flex: 0 0 auto; padding: 2px 8px; border-radius: 999px; color: #fff; background: var(--pair-admin-accent-text); }
+.pair-settings .pair-pro-banner__text { flex: 1 1 auto; margin: 0; color: #1d2327; }
+.pair-settings .pair-pro-banner__sub { margin-inline-start: 4px; color: var(--pair-pro-muted); }
+.pair-settings .pair-pro-banner__price { margin-inline-start: 6px; color: var(--pair-pro-muted); font-weight: 600; white-space: nowrap; }
+.pair-settings .pair-pro-banner__dismiss { flex: 0 0 auto; font-size: 18px; line-height: 1; text-decoration: none; color: var(--pair-pro-muted); padding: 4px; border-radius: 4px; }
+.pair-settings .pair-pro-banner__dismiss:hover { color: #1d2327; background: rgba(0, 0, 0, .05); }
+
+/* Accent CTA buttons (override WP blue with the readable dark indigo accent) */
+.pair-settings .pair-pro-banner__cta.button-primary,
+.pair-settings .pair-pro-aside__cta.button-primary {
+    background: var(--pair-admin-accent-text); border-color: color-mix(in srgb, var(--pair-admin-accent-text) 80%, #000); color: #fff; text-shadow: none; box-shadow: none;
+}
+.pair-settings .pair-pro-banner__cta.button-primary:hover,
+.pair-settings .pair-pro-aside__cta.button-primary:hover { background: color-mix(in srgb, var(--pair-admin-accent-text) 88%, #000); }
+
+/* Sidebar promo card */
+.pair-settings .pair-pro-aside {
+    background: #fff; border: 1px solid #dcdcde; border-top: 3px solid var(--pair-admin-accent); border-radius: var(--pair-pro-radius); padding: 18px 20px; position: sticky; top: 40px;
+}
+.pair-settings .pair-pro-aside__eyebrow { margin: 0 0 4px; color: var(--pair-admin-accent-text); }
+.pair-settings .pair-pro-aside__heading { margin: 0 0 12px; font-size: 16px; line-height: 1.3; }
+.pair-settings .pair-pro-aside__list { margin: 0 0 16px; padding: 0; list-style: none; }
+.pair-settings .pair-pro-aside__list li { display: flex; align-items: flex-start; gap: 8px; padding: 5px 0; color: #1d2327; font-size: 13px; }
+.pair-settings .pair-pro-aside__lock::before,
+.pair-settings .pair-pro-card__lock::before { content: "\f160"; font-family: dashicons; font-size: 15px; line-height: 1.2; color: var(--pair-admin-accent); }
+.pair-settings .pair-pro-aside__cta { width: 100%; text-align: center; }
+.pair-settings .pair-pro-aside__price { margin: 10px 0 0; font-size: 12px; color: var(--pair-pro-muted); text-align: center; }
+
+/* "What PRO adds" locked cards */
+.pair-settings .pair-pro-cards { max-width: 1040px; margin: var(--pair-pro-gap) 0 0; }
+.pair-settings .pair-pro-cards__title { font-size: 15px; margin: 0 0 12px; }
+.pair-settings .pair-pro-cards__grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
+.pair-settings .pair-pro-card { position: relative; padding: 16px; border: 1px solid #dcdcde; border-radius: var(--pair-pro-radius-sm); background: color-mix(in srgb, var(--pair-admin-accent) 3%, #fff); }
+.pair-settings .pair-pro-card__badge { position: absolute; top: 12px; inset-inline-end: 12px; padding: 1px 7px; border-radius: 999px; color: var(--pair-admin-accent-text); border: 1px solid color-mix(in srgb, var(--pair-admin-accent) 40%, #fff); }
+.pair-settings .pair-pro-card__lock { display: inline-block; margin-bottom: 6px; }
+.pair-settings .pair-pro-card__title { margin: 0 0 6px; font-size: 14px; line-height: 1.3; }
+.pair-settings .pair-pro-card__desc { margin: 0; font-size: 12.5px; line-height: 1.5; color: var(--pair-pro-muted); }
+
+@media (prefers-reduced-motion: no-preference) {
+    .pair-settings .pair-pro-banner__cta, .pair-settings .pair-pro-aside__cta { transition: background-color .15s ease, border-color .15s ease; }
+}
