@@ -13,12 +13,15 @@
 /composer.lock
 /package.json
 /package-lock.json
-/phpcs.xml.dist
-/phpstan.neon.dist
+/phpcs.xml*
+/phpstan.neon*
 /phpstan-baseline.neon
 /README.md
 /SPEC.md
 /.DS_Store
 /.wordpress-org
+/glotpress-import
+/.raw
+/.shotkit
 /test-results
 /SUBMISSION.md
