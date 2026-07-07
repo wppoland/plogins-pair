@@ -4,7 +4,7 @@ Tags: woocommerce, product recommendations, related products, recently viewed, c
 Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 8.1
-Stable tag: 0.1.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -103,6 +103,9 @@ Yes. This plugin is compatible with WordPress Multisite. Network activate it or 
 This plugin does not connect to any external services. Recommendations are computed on your own site from your WooCommerce catalog, and recently viewed products are stored only in a first-party cookie on the visitor's device.
 
 == Changelog ==
+
+= 1.0.1 =
+* First stable release.
 
 = 0.1.0 =
 * Initial release: automatic product-page, cart and recently-viewed blocks; five selectable strategies with a recent-products fallback; configurable count, columns, headings and in-stock filter; [pair_recommendations] and [pair_recently_viewed] shortcodes; sectioned settings screen with inline help.
