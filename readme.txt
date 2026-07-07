@@ -95,8 +95,7 @@ Yes. This plugin is compatible with WordPress Multisite. Network activate it or 
 
 1. The "You may also like" block on a product page.
 2. Cross-sell suggestions under the cart.
-3. Recently viewed products.
-4. The sectioned Pair recommendations settings screen.
+3. The sectioned Pair recommendations settings screen.
 
 == External Services ==
 
