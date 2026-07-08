@@ -4,7 +4,7 @@ Tags: woocommerce, product recommendations, related products, recently viewed, c
 Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 8.1
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -101,7 +101,14 @@ Yes. This plugin is compatible with WordPress Multisite. Network activate it or 
 
 This plugin does not connect to any external services. Recommendations are computed on your own site from your WooCommerce catalog, and recently viewed products are stored only in a first-party cookie on the visitor's device.
 
+== Translations ==
+
+Plogins Pair includes Polish, German and Spanish translations for the plugin interface. The text domain is `plogins-pair`, so WordPress.org language packs can also override or extend these bundled translations.
+
 == Changelog ==
+
+= 1.0.2 =
+* Added bundled Polish, German and Spanish translations for the plugin interface.
 
 = 1.0.1 =
 * First stable release.
