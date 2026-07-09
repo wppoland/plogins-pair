@@ -101,3 +101,16 @@
     pointer-events: none;
 }
 .pair-help:hover::after, .pair-help:focus::after { opacity: 1; visibility: visible; }
+
+/* Accessibility: honour the OS "reduce motion" preference for this plugin UI. */
+@media (prefers-reduced-motion: reduce) {
+  [class*="pair-"],
+  [class*="pair-"] *,
+  [class*="pair-"] *::before,
+  [class*="pair-"] *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

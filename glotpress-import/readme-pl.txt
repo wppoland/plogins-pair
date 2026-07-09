@@ -4,107 +4,114 @@ Tags: woocommerce, product recommendations, related products, recently viewed, c
 Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 8.1
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Automatyczne rekomendacje produktów WooCommerce: „Możesz także polubić”, sprzedaż krzyżowa koszyka i ostatnio oglądane. Bez ręcznej konfiguracji, bez zmiany układu.
+Automatyczne rekomendacje produktów WooCommerce: „Może Ci się też spodobać”, sprzedaż krzyżowa w koszyku i ostatnio oglądane. Bez ręcznej konfiguracji, bez przeskoków układu.
 
 == Description ==
 
-Plogins Pair dodaje automatyczne rekomendacje produktów do Twojego sklepu WooCommerce, bez konieczności ręcznej konfiguracji. Pomaga kupującym odkrywać więcej Twojego katalogu podczas przeglądania i finalizowania zakupów, co podnosi średnią wartość zamówienia i sprawia, że ​​klienci zbliżają się do koszyka.
+Plogins Pair dodaje automatyczne rekomendacje produktów do Twojego sklepu WooCommerce, bez ręcznej konfiguracji. Pomaga klientom odkrywać więcej z Twojego katalogu podczas przeglądania i finalizacji zakupu, co podnosi średnią wartość zamówienia i utrzymuje ruch w stronę koszyka.
 
-Po wyjęciu z pudełka otrzymujesz trzy bloki:
+Zaraz po instalacji otrzymujesz trzy bloki:
 
-* <strong>„Możesz też polubić”</strong> po podsumowaniu produktu, dzięki czemu kupujący zawsze ma następny krok.
-* <strong>Sprzedaj sugestie dotyczące koszyka</strong> na podstawie tego, co już się w nim znajduje, aby zwiększyć zamówienie przed realizacją transakcji.
-* <strong>Ostatnio oglądane produkty</strong>, więc powracający klienci kontynuują zakupy tam, gdzie je przerwali.
+* <strong>„Może Ci się też spodobać”</strong> po podsumowaniu produktu, dzięki czemu klient zawsze ma następny krok.
+* <strong>Sugestie sprzedaży krzyżowej w koszyku</strong> na podstawie tego, co już się w nim znajduje, aby powiększyć zamówienie przed przejściem do kasy.
+* <strong>Ostatnio oglądane produkty</strong>, dzięki czemu powracający klienci wracają tam, gdzie skończyli.
 
-W przeciwieństwie do wbudowanych w WooCommerce funkcji sprzedaży dodatkowej i krzyżowej, które musisz wybrać ręcznie dla każdego produktu, Pair generuje dla Ciebie rekomendacje i utrzymuje je w miarę zmian w Twoim katalogu i sprzedaży. Wybierasz sposób wybierania produktów za pomocą prostego ustawienia strategii, a siatka jest renderowana przy użyciu własnych znaczników karty produktu Twojego motywu, dzięki czemu pasuje do reszty Twojego sklepu bez dodatkowego interfejsu JavaScript i zmiany układu.
+W przeciwieństwie do wbudowanych w WooCommerce sprzedaży dodatkowej (upsell) i krzyżowej (cross-sell), które musisz wybierać ręcznie dla każdego produktu, Pair generuje rekomendacje za Ciebie i utrzymuje ich trafność wraz ze zmianami w Twoim katalogu i sprzedaży. Sposób doboru produktów wybierasz prostym ustawieniem strategii, a siatka jest renderowana przy użyciu znaczników karty produktu Twojego motywu, dzięki czemu pasuje do reszty sklepu bez dodatkowego front-endowego JavaScriptu i bez przeskoków układu.
 
 = Recommendation strategies =
-Dla każdego bloku wybierasz sposób wyboru produktów:
+Dla każdego bloku wybierasz sposób doboru produktów:
 
 * <strong>Ta sama kategoria (według popularności)</strong> – ustawienie domyślne; inne produkty z tych samych kategorii, uporządkowane według łącznej sprzedaży.
-* <strong>Udostępnione tagi</strong> – produkty, które mają wspólne tagi elementu.
-* <strong>Bestsellery</strong> – Twoje bestsellery, opcjonalnie w tych samych kategoriach.
-* <strong>Najnowsze produkty</strong> – Twoje najnowsze produkty.
-* <strong>Ostatnio oglądane przez kupującego</strong> – produkty, które oglądał ten użytkownik.
+* <strong>Wspólne tagi</strong> – produkty, które mają wspólne tagi z danym produktem.
+* <strong>Bestsellery</strong> – Twoje najlepiej sprzedające się produkty, opcjonalnie w obrębie tych samych kategorii.
+* <strong>Najnowsze produkty</strong> – Twoje ostatnio dodane produkty.
+* <strong>Ostatnio oglądane przez klienta</strong> – produkty, które oglądał dany odwiedzający.
 
-Każda strategia opiera się na najnowszych produktach, więc blok nigdy nie jest niezręcznie pusty.
+Każda strategia w razie potrzeby sięga po najnowsze produkty, więc blok nigdy nie jest niezręcznie pusty.
 
 = Built to be fast and friendly =
-* Renderowane z kartami produktów aktywnego motywu, więc wygląda natywnie.
-* Brak interfejsu JavaScript; ostatnio przeglądane są przechowywane w pliku cookie pierwszej kategorii (tylko identyfikatory produktów, nic nie jest nigdzie przesyłane).
-* Zapytania są ograniczone liczbą wybranych produktów.
-* Przejrzysty, podzielony na części ekran ustawień z wbudowaną pomocą.
+* Renderowane z użyciem kart produktów aktywnego motywu, więc wygląda natywnie.
+* Brak front-endowego JavaScriptu; ostatnio oglądane są przechowywane w ciasteczku własnym (first-party) — tylko identyfikatory produktów, nic nie jest nigdzie wysyłane.
+* Zapytania są ograniczone liczbą wybranych przez Ciebie produktów.
+* Przejrzysty, podzielony na sekcje ekran ustawień z pomocą kontekstową.
 * W pełni przetłumaczalne, dostępne nagłówki i etykiety.
 
 = Documentation and links =
 * <strong>Dokumentacja</strong> - https://plogins.com/pl/plogins-pair/docs/
 * <strong>Strona wtyczki</strong> - https://plogins.com/pl/plogins-pair/
 * <strong>Kod źródłowy</strong> - https://github.com/wppoland/plogins-pair
-* <strong>Raporty o błędach i prośby o nowe funkcje</strong> - https://github.com/wppoland/plogins-pair/issues
+* <strong>Zgłoszenia błędów i propozycje funkcji</strong> - https://github.com/wppoland/plogins-pair/issues
 
 = Features =
-* Automatyczny blok „Możesz też polubić” po podsumowaniu pojedynczego produktu.
+* Automatyczny blok „Może Ci się też spodobać” po podsumowaniu pojedynczego produktu.
 * Automatyczne sugestie sprzedaży krzyżowej pod koszykiem, na podstawie jego zawartości.
-* Blok ostatnio oglądanych produktów, na stronach produktów i/lub w koszyku.
-* Pięć strategii do wyboru w każdym bloku (kategoria, tagi, bestsellery, najnowsze, ostatnio oglądane) z rezerwą na najnowsze produkty.
-* Konfigurowalna liczba produktów (1 do 12) i kolumn (1 do 6).
-* Opcjonalny filtr „tylko w magazynie”.
+* Blok ostatnio oglądanych produktów na stronach produktów i/lub w koszyku.
+* Pięć strategii do wyboru dla każdego bloku (kategoria, tagi, bestsellery, najnowsze, ostatnio oglądane) z rezerwowym uzupełnieniem najnowszymi produktami.
+* Konfigurowalna liczba produktów (od 1 do 12) i kolumn (od 1 do 6).
+* Opcjonalny filtr „tylko dostępne w magazynie”.
 * Edytowalne nagłówki dla każdego bloku.
-* Krótkie kody [pair_recommendations] i [pair_recently_viewed] umożliwiające umieszczanie bloków w dowolnym miejscu.
-* Karty produktów w stylu tematycznym, bez niestandardowego JavaScriptu, bez zmiany układu.
+* Shortcode’y [pair_recommendations] i [pair_recently_viewed] pozwalają umieścić bloki w dowolnym miejscu.
+* Karty produktów w stylu motywu, bez własnego front-endowego JavaScriptu, bez przeskoków układu.
 
 = Shortcodes =
-* `[pair_recommendations strategy="related" count="4" columns="4"]` - blok rekomendacji. Na stronie produktu używa tego produktu; gdzie indziej korzysta z wózka. „strategia” jest opcjonalna (powiązane, tagi, bestsellery, najnowsze, ostatnio).
-* `[pair_recently_viewed count="4" columns="4"]` - ostatnio oglądane produkty kupującego.
+* `[pair_recommendations strategy="related" count="4" columns="4"]` – blok rekomendacji. Na stronie produktu używa tego produktu; w innych miejscach korzysta z koszyka. `strategy` jest opcjonalne (related, tags, bestsellers, newest, recently).
+* `[pair_recently_viewed count="4" columns="4"]` – ostatnio oglądane produkty klienta.
 
 == Installation ==
 
-1. Zainstaluj i aktywuj WooCommerce.
-2. Zainstaluj parę Plogins i aktywuj ją.
-3. Otwórz WooCommerce -> Rekomendacje par. Rozsądne ustawienia domyślne są ustawiane podczas aktywacji; włączaj i wyłączaj bloki, wybieraj strategię i ustawiaj nagłówki.
+1. Zainstaluj i włącz WooCommerce.
+2. Zainstaluj Plogins Pair i włącz wtyczkę.
+3. Otwórz WooCommerce -> Rekomendacje Pair. Podczas aktywacji ustawiane są rozsądne wartości domyślne; włączaj i wyłączaj bloki, wybierz strategię i ustaw nagłówki.
 
 == Frequently Asked Questions ==
 
 = Does this require WooCommerce? =
-Tak. Wtyczka współpracuje z produktami WooCommerce i nie pokazuje niczego, dopóki WooCommerce nie będzie aktywne.
+Tak. Wtyczka działa z produktami WooCommerce i nie wyświetla niczego, dopóki WooCommerce nie jest aktywne.
 
 = How are recommendations chosen? =
-Wybierasz strategię na blok: ta sama kategoria według popularności (domyślnie), udostępnionych tagów, bestsellerów, najnowszych produktów lub ostatnio oglądanych przez kupującego produktów. Jeśli nie ma wystarczającej liczby zapałek, blok jest uzupełniany najnowszymi produktami, dzięki czemu nigdy nie jest pusty.
+Wybierasz strategię dla każdego bloku: ta sama kategoria według popularności (domyślnie), wspólne tagi, bestsellery, najnowsze lub ostatnio oglądane przez klienta produkty. Jeśli dopasowań jest za mało, blok jest uzupełniany najnowszymi produktami, więc nigdy nie jest pusty.
 
 = Is this different from WooCommerce upsells and cross-sells? =
-Tak. Sprzedaż dodatkowa i krzyżowa WooCommerce jest wybierana ręcznie dla każdego produktu. Pair automatycznie generuje rekomendacje na podstawie Twojego katalogu, więc nie musisz wybierać produktu po produkcie.
+Tak. Sprzedaż dodatkowa i krzyżowa w WooCommerce jest wybierana ręcznie dla każdego produktu. Pair generuje rekomendacje automatycznie na podstawie Twojego katalogu, więc nie musisz dobierać ich produkt po produkcie.
 
 = How does "recently viewed" work, and is it GDPR friendly? =
-Kiedy odwiedzający otwiera produkt, Pair przechowuje identyfikator tego produktu we własnym pliku cookie na jego własnym urządzeniu. Przechowuje jedynie identyfikatory produktów, nie przechowuje żadnych danych osobowych i nigdy nie wysyła niczego do usługi zewnętrznej. Blok po prostu ponownie pokazuje te produkty.
+Gdy odwiedzający otwiera produkt, Pair zapisuje identyfikator tego produktu w ciasteczku własnym (first-party) na jego urządzeniu. Przechowuje wyłącznie identyfikatory produktów, nie zawiera żadnych danych osobowych i nigdy nie wysyła niczego do usługi zewnętrznej. Blok po prostu ponownie pokazuje te produkty.
 
 = Will it slow down my store or shift the layout? =
-Nie. Bloki renderują się ze znacznikami karty produktu Twojego motywu i małym arkuszem stylów, bez interfejsu JavaScript. Zapytania są ograniczone wybraną liczbą produktów.
+Nie. Bloki renderują się przy użyciu znaczników karty produktu Twojego motywu i niewielkiego arkusza stylów, bez front-endowego JavaScriptu. Zapytania są ograniczone wybraną przez Ciebie liczbą produktów.
 
 = Can I control where the blocks appear? =
-Tak. Niezależnie włączaj lub wyłączaj stronę produktu, koszyk i ostatnio przeglądane bloki, a także użyj skrótów, aby umieścić blok w dowolnym miejscu.
+Tak. Niezależnie włączaj i wyłączaj bloki na stronie produktu, w koszyku i ostatnio oglądanych, a shortcode’ów użyj, aby umieścić blok w dowolnym miejscu.
 
 = Does this plugin work on WordPress Multisite? =
 
-Tak. Ta wtyczka jest kompatybilna z WordPress Multisite. Aktywuj go w sieci lub aktywuj na poszczególnych stronach; każda witryna przechowuje własne ustawienia i dane.
+Tak. Ta wtyczka jest zgodna z WordPress Multisite. Włącz ją w całej sieci lub na poszczególnych witrynach; każda witryna zachowuje własne ustawienia i dane.
 
 == Screenshots ==
 
-1. Blok „Możesz też polubić” na stronie produktu.
-2. Sugestie dotyczące sprzedaży krzyżowej pod koszykiem.
-3. Wycięty ekran ustawień rekomendacji par.
+1. Blok „Może Ci się też spodobać” na stronie produktu.
+2. Sugestie sprzedaży krzyżowej pod koszykiem.
+3. Podzielony na sekcje ekran ustawień Rekomendacji Pair.
 
 == External Services ==
 
-Ta wtyczka nie łączy się z żadnymi usługami zewnętrznymi. Rekomendacje są obliczane w Twojej witrynie na podstawie katalogu WooCommerce, a ostatnio oglądane produkty są przechowywane wyłącznie w pliku cookie na urządzeniu odwiedzającego.
+Ta wtyczka nie łączy się z żadnymi usługami zewnętrznymi. Rekomendacje są obliczane w Twojej własnej witrynie na podstawie katalogu WooCommerce, a ostatnio oglądane produkty są przechowywane wyłącznie w ciasteczku własnym (first-party) na urządzeniu odwiedzającego.
+
+== Translations ==
+
+Plogins Pair zawiera polskie, niemieckie i hiszpańskie tłumaczenia interfejsu wtyczki. Domena tekstowa to `plogins-pair`, więc pakiety językowe z WordPress.org mogą też nadpisywać lub rozszerzać dołączone tłumaczenia.
 
 == Changelog ==
+
+= 1.0.2 =
+* Dodano dołączone polskie, niemieckie i hiszpańskie tłumaczenia interfejsu wtyczki.
 
 = 1.0.1 =
 * Pierwsza stabilna wersja.
 
 = 0.1.0 =
-* Pierwsza wersja: automatyczna strona produktu, koszyk i ostatnio przeglądane bloki; pięć strategii do wyboru z rezerwą na najnowsze produkty; konfigurowalna liczba, kolumny, nagłówki i filtr w magazynie; krótkie kody [pair_recommendations] i [pair_recently_viewed]; podzielony na części ekran ustawień z wbudowaną pomocą.
+* Pierwsze wydanie: automatyczne bloki na stronie produktu, w koszyku i ostatnio oglądanych; pięć strategii do wyboru z rezerwowym uzupełnieniem najnowszymi produktami; konfigurowalna liczba, kolumny, nagłówki i filtr dostępności w magazynie; shortcode’y [pair_recommendations] i [pair_recently_viewed]; podzielony na sekcje ekran ustawień z pomocą kontekstową.
