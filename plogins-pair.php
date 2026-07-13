@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       Plogins Pair - Product Recommendations for WooCommerce
+ * Plugin Name:       Pair - Product Recommendations for WooCommerce
  * Plugin URI:        https://plogins.com/plogins-pair/
  * Description:        Automatic product recommendations for WooCommerce: a "You may also like" block on the product page and cross-sell suggestions in the cart. No manual setup, no layout shift.
  * Version:           1.0.2

@@ -1,4 +1,4 @@
-=== Plogins Pair - Product Recommendations for WooCommerce ===
+=== Pair - Product Recommendations for WooCommerce ===
 Contributors: motylanogha
 Tags: woocommerce, product recommendations, related products, recently viewed, cross-sell
 Requires at least: 6.5
