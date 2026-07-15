@@ -74,6 +74,16 @@ final class RecommendationsService implements HasHooks
             ! empty($s['in_stock_only']),
         );
 
+        /**
+         * Filters the recommended products before they are rendered. Lets add-ons
+         * (e.g. Pair Pro manual curation) reorder or replace the automatic picks.
+         *
+         * @param array<int, \WC_Product> $products The recommended products.
+         * @param string                  $context  Placement: 'single' or 'cart'.
+         * @param array<int, int>         $seedIds  The seed product IDs the picks are for.
+         */
+        $products = apply_filters('pair/recommendations', $products, 'single', [$product->get_id()]);
+
         $this->render($products, (string) $s['single_heading'], (int) $s['columns'], 'single');
     }
 
@@ -88,6 +98,9 @@ final class RecommendationsService implements HasHooks
             (int) $s['count'],
             ! empty($s['in_stock_only']),
         );
+
+        /** This filter is documented in renderSingle(). */
+        $products = apply_filters('pair/recommendations', $products, 'cart', $cartIds);
 
         $this->render($products, (string) $s['cart_heading'], (int) $s['columns'], 'cart');
     }
