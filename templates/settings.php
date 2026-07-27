@@ -35,6 +35,8 @@ $pair_help = static function (string $text): void {
     <h1><span class="pair-logo" aria-hidden="true"></span> <?php echo esc_html__('Pair recommendations', 'plogins-pair'); ?></h1>
     <p class="pair-intro"><?php echo esc_html__('Automatic product recommendations. Blocks are rendered with your theme\'s product cards, so they match your shop. Pick where they appear and how the products are chosen.', 'plogins-pair'); ?></p>
 
+    <?php $this->proUpsell()->banner(); ?>
+
     <form action="options.php" method="post">
         <?php settings_fields('pair-settings'); ?>
 
@@ -137,4 +139,6 @@ $pair_help = static function (string $text): void {
             <p><?php echo esc_html__('Place a recently viewed block anywhere:', 'plogins-pair'); ?> <code>[pair_recently_viewed count="4"]</code></p>
         </div>
     </div>
+
+    <?php $this->proUpsell()->cards(); ?>
 </div>
