@@ -25,17 +25,17 @@ W przeciwieństwie do wbudowanych w WooCommerce sprzedaży dodatkowej (upsell) i
 = Recommendation strategies =
 Dla każdego bloku wybierasz sposób doboru produktów:
 
-* <strong>Ta sama kategoria (według popularności)</strong> – ustawienie domyślne; inne produkty z tych samych kategorii, uporządkowane według łącznej sprzedaży.
-* <strong>Wspólne tagi</strong> – produkty, które mają wspólne tagi z danym produktem.
-* <strong>Bestsellery</strong> – Twoje najlepiej sprzedające się produkty, opcjonalnie w obrębie tych samych kategorii.
-* <strong>Najnowsze produkty</strong> – Twoje ostatnio dodane produkty.
-* <strong>Ostatnio oglądane przez klienta</strong> – produkty, które oglądał dany odwiedzający.
+* <strong>Ta sama kategoria (według popularności)</strong>, ustawienie domyślne; inne produkty z tych samych kategorii, uporządkowane według łącznej sprzedaży.
+* <strong>Wspólne tagi</strong>, produkty, które mają wspólne tagi z danym produktem.
+* <strong>Bestsellery</strong>, Twoje najlepiej sprzedające się produkty, opcjonalnie w obrębie tych samych kategorii.
+* <strong>Najnowsze produkty</strong>, Twoje ostatnio dodane produkty.
+* <strong>Ostatnio oglądane przez klienta</strong>, produkty, które oglądał dany odwiedzający.
 
 Każda strategia w razie potrzeby sięga po najnowsze produkty, więc blok nigdy nie jest niezręcznie pusty.
 
 = Built to be fast and friendly =
 * Renderowane z użyciem kart produktów aktywnego motywu, więc wygląda natywnie.
-* Brak front-endowego JavaScriptu; ostatnio oglądane są przechowywane w ciasteczku własnym (first-party) — tylko identyfikatory produktów, nic nie jest nigdzie wysyłane.
+* Brak front-endowego JavaScriptu; ostatnio oglądane są przechowywane w ciasteczku własnym (first-party), tylko identyfikatory produktów, nic nie jest nigdzie wysyłane.
 * Zapytania są ograniczone liczbą wybranych przez Ciebie produktów.
 * Przejrzysty, podzielony na sekcje ekran ustawień z pomocą kontekstową.
 * W pełni przetłumaczalne, dostępne nagłówki i etykiety.
@@ -58,8 +58,8 @@ Każda strategia w razie potrzeby sięga po najnowsze produkty, więc blok nigdy
 * Karty produktów w stylu motywu, bez własnego front-endowego JavaScriptu, bez przeskoków układu.
 
 = Shortcodes =
-* `[pair_recommendations strategy="related" count="4" columns="4"]` – blok rekomendacji. Na stronie produktu używa tego produktu; w innych miejscach korzysta z koszyka. `strategy` jest opcjonalne (related, tags, bestsellers, newest, recently).
-* `[pair_recently_viewed count="4" columns="4"]` – ostatnio oglądane produkty klienta.
+* `[pair_recommendations strategy="related" count="4" columns="4"]`, blok rekomendacji. Na stronie produktu używa tego produktu; w innych miejscach korzysta z koszyka. `strategy` jest opcjonalne (related, tags, bestsellers, newest, recently).
+* `[pair_recently_viewed count="4" columns="4"]`, ostatnio oglądane produkty klienta.
 
 == Installation ==
 

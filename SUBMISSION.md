@@ -12,7 +12,7 @@ the shipped zip (`.distignore` excludes `/SUBMISSION.md`... add if missing).
 ## Plugin Check (wp-env, WooCommerce + plugin-check)
 
 - Severity 7 (errors): **0**.
-- Severity 5 (warnings): **1** benign — `WordPressVIPMinimum ... PostNotIn_exclude` at `src/Service/Recommender.php:119` (using `exclude` in `wc_get_products`, bounded by limit; VIP-hosting advisory, not a wp.org guideline). The "short description too long" warning was fixed (now 140 chars).
+- Severity 5 (warnings): **1** benign, `WordPressVIPMinimum ... PostNotIn_exclude` at `src/Service/Recommender.php:119` (using `exclude` in `wc_get_products`, bounded by limit; VIP-hosting advisory, not a wp.org guideline). The "short description too long" warning was fixed (now 140 chars).
 
 ## Listing copy
 

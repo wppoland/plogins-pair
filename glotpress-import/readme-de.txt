@@ -25,11 +25,11 @@ Im Gegensatz zu den integrierten Upsells und Cross-Sells von WooCommerce, die du
 = Recommendation strategies =
 Für jeden Block wählst du aus, wie Produkte ausgewählt werden:
 
-* <strong>Gleiche Kategorie (nach Beliebtheit)</strong> – die Standardeinstellung; andere Produkte aus denselben Kategorien, sortiert nach Gesamtumsatz.
-* <strong>Gemeinsame Tags</strong> – Produkte, die sich die Tags des Artikels teilen.
-* <strong>Bestseller</strong> – deine meistverkauften Produkte, optional innerhalb derselben Kategorien.
-* <strong>Neueste Produkte</strong> – deine zuletzt hinzugefügten Produkte.
-* <strong>Zuletzt vom Käufer angesehen</strong> – die Produkte, die sich dieser Besucher angesehen hat.
+* <strong>Gleiche Kategorie (nach Beliebtheit)</strong>, die Standardeinstellung; andere Produkte aus denselben Kategorien, sortiert nach Gesamtumsatz.
+* <strong>Gemeinsame Tags</strong>, Produkte, die sich die Tags des Artikels teilen.
+* <strong>Bestseller</strong>, deine meistverkauften Produkte, optional innerhalb derselben Kategorien.
+* <strong>Neueste Produkte</strong>, deine zuletzt hinzugefügten Produkte.
+* <strong>Zuletzt vom Käufer angesehen</strong>, die Produkte, die sich dieser Besucher angesehen hat.
 
 Jede Strategie greift notfalls auf aktuelle Produkte zurück, sodass ein Block nie unschön leer ist.
 
@@ -58,8 +58,8 @@ Jede Strategie greift notfalls auf aktuelle Produkte zurück, sodass ein Block n
 * Produktkarten im Theme-Stil, kein eigenes Frontend-JavaScript, keine Layout-Verschiebung.
 
 = Shortcodes =
-* `[pair_recommendations strategy="related" count="4" columns="4"]` – ein Empfehlungsblock. Auf einer Produktseite wird dieses Produkt verwendet, anderswo der Warenkorb. `strategy` ist optional (related, tags, bestsellers, newest, recently).
-* `[pair_recently_viewed count="4" columns="4"]` – die zuletzt angesehenen Produkte des Käufers.
+* `[pair_recommendations strategy="related" count="4" columns="4"]`, ein Empfehlungsblock. Auf einer Produktseite wird dieses Produkt verwendet, anderswo der Warenkorb. `strategy` ist optional (related, tags, bestsellers, newest, recently).
+* `[pair_recently_viewed count="4" columns="4"]`, die zuletzt angesehenen Produkte des Käufers.
 
 == Installation ==
 

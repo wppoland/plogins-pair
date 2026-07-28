@@ -20,7 +20,7 @@ msgstr ""
 #. Plugin Name of the plugin
 #: plogins-pair.php
 msgid "Plogins Pair - Product Recommendations for WooCommerce"
-msgstr "Plogins Pair – Produktempfehlungen für WooCommerce"
+msgstr "Plogins Pair, Produktempfehlungen für WooCommerce"
 
 #. Plugin URI of the plugin
 #: plogins-pair.php
