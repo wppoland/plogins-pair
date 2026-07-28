@@ -1,10 +1,10 @@
-=== Plogins Pair - Product Recommendations for WooCommerce ===
+=== Pair - Product Recommendations for WooCommerce ===
 Contributors: motylanogha
 Tags: woocommerce, product recommendations, related products, recently viewed, cross-sell
 Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 8.1
-Stable tag: 1.0.1
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -95,17 +95,26 @@ Yes. This plugin is compatible with WordPress Multisite. Network activate it or 
 
 1. The "You may also like" block on a product page.
 2. Cross-sell suggestions under the cart.
-3. Recently viewed products.
-4. The sectioned Pair recommendations settings screen.
+3. The sectioned Pair recommendations settings screen.
 
 == External Services ==
 
 This plugin does not connect to any external services. Recommendations are computed on your own site from your WooCommerce catalog, and recently viewed products are stored only in a first-party cookie on the visitor's device.
 
+== Translations ==
+
+Plogins Pair includes Polish, German and Spanish translations for the plugin interface. The text domain is `plogins-pair`, so WordPress.org language packs can also override or extend these bundled translations.
+
 == Changelog ==
 
+= 1.0.3 =
+* Translations: completed Polish, German and Spanish for the PRO upgrade panel.
+
+= 1.0.2 =
+* Added bundled Polish, German and Spanish translations for the plugin interface.
+
 = 1.0.1 =
-* Initial WordPress.org release.
+* First stable release.
 
 = 0.1.0 =
 * Initial release: automatic product-page, cart and recently-viewed blocks; five selectable strategies with a recent-products fallback; configurable count, columns, headings and in-stock filter; [pair_recommendations] and [pair_recently_viewed] shortcodes; sectioned settings screen with inline help.

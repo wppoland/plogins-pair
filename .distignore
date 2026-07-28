@@ -25,3 +25,7 @@
 /.shotkit
 /test-results
 /SUBMISSION.md
+
+# editor backups (never ship / never a badly_named_files reject)
+*~
+*.bak

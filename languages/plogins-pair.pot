@@ -2,7 +2,8 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Plogins Pair - Product Recommendations for WooCommerce 0.1.0\n"
+"Project-Id-Version: Plogins Pair - Product Recommendations for WooCommerce "
+"0.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pair\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,7 +27,10 @@ msgstr ""
 
 #. Description of the plugin
 #: plogins-pair.php
-msgid "Automatic product recommendations for WooCommerce: a \"You may also like\" block on the product page and cross-sell suggestions in the cart. No manual setup, no layout shift."
+msgid ""
+"Automatic product recommendations for WooCommerce: a \"You may also like\" "
+"block on the product page and cross-sell suggestions in the cart. No manual "
+"setup, no layout shift."
 msgstr ""
 
 #. Author of the plugin
@@ -47,8 +51,7 @@ msgstr ""
 msgid "Add these to your order"
 msgstr ""
 
-#: config/defaults.php:31
-#: templates/settings.php:92
+#: config/defaults.php:31 templates/settings.php:92
 msgid "Recently viewed"
 msgstr ""
 
@@ -56,8 +59,7 @@ msgstr ""
 msgid "Plogins Pair requires WooCommerce to be active."
 msgstr ""
 
-#: src/Admin/Settings.php:40
-#: src/Admin/Settings.php:41
+#: src/Admin/Settings.php:40 src/Admin/Settings.php:41
 #: templates/settings.php:35
 msgid "Pair recommendations"
 msgstr ""
@@ -87,7 +89,10 @@ msgid "Recommended products"
 msgstr ""
 
 #: templates/settings.php:36
-msgid "Automatic product recommendations. Blocks are rendered with your theme's product cards, so they match your shop. Pick where they appear and how the products are chosen."
+msgid ""
+"Automatic product recommendations. Blocks are rendered with your theme's "
+"product cards, so they match your shop. Pick where they appear and how the "
+"products are chosen."
 msgstr ""
 
 #: templates/settings.php:43
@@ -102,17 +107,17 @@ msgstr ""
 msgid "Show \"You may also like\""
 msgstr ""
 
-#: templates/settings.php:58
-#: templates/settings.php:79
+#: templates/settings.php:58 templates/settings.php:79
 msgid "How to choose products"
 msgstr ""
 
 #: templates/settings.php:60
-msgid "Related uses the product's categories, ordered by popularity. Others use tags, best sellers, newest, or what the shopper recently viewed."
+msgid ""
+"Related uses the product's categories, ordered by popularity. Others use "
+"tags, best sellers, newest, or what the shopper recently viewed."
 msgstr ""
 
-#: templates/settings.php:63
-#: templates/settings.php:84
+#: templates/settings.php:63 templates/settings.php:84
 #: templates/settings.php:105
 msgid "Heading"
 msgstr ""
@@ -126,7 +131,9 @@ msgid "Show cross-sell suggestions"
 msgstr ""
 
 #: templates/settings.php:81
-msgid "Based on the categories of the items already in the cart, excluding those items."
+msgid ""
+"Based on the categories of the items already in the cart, excluding those "
+"items."
 msgstr ""
 
 #: templates/settings.php:95
@@ -134,7 +141,9 @@ msgid "Show recently viewed products"
 msgstr ""
 
 #: templates/settings.php:96
-msgid "Tracks the products a visitor views in a first-party cookie (product IDs only) and shows them again. Nothing is sent anywhere."
+msgid ""
+"Tracks the products a visitor views in a first-party cookie (product IDs "
+"only) and shows them again. Nothing is sent anywhere."
 msgstr ""
 
 #: templates/settings.php:101
@@ -171,4 +180,64 @@ msgstr ""
 
 #: templates/settings.php:137
 msgid "Place a recently viewed block anywhere:"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:84
+msgid "Wkrótce"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:84
+msgid "Coming soon"
+msgstr ""
+
+#. translators: %d: yearly price in PLN
+#: src/Admin/ProUpsell.php:89
+#, php-format
+msgid "od %d zł/rok"
+msgstr ""
+
+#. translators: 1: currency symbol, 2: yearly price
+#: src/Admin/ProUpsell.php:94
+#, php-format
+msgid "from %1$s%2$d/yr"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:103
+msgid "Upgrade to PRO"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:104
+msgid "Powiadom mnie"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:104
+msgid "Get notified"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:134
+msgid "Permission denied."
+msgstr ""
+
+#. translators: %s: PRO edition name
+#: src/Admin/ProUpsell.php:164
+#, php-format
+msgid "Do more with %s"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:171
+msgid "Dismiss this notice"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:188
+msgid "Unlock every PRO feature"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:201
+msgid "one licence, every PRO feature"
+msgstr ""
+
+#. translators: %s: PRO edition name
+#: src/Admin/ProUpsell.php:220
+#, php-format
+msgid "What %s adds"
 msgstr ""

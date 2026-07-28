@@ -2,11 +2,12 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Plogins Pair - Product Recommendations for WooCommerce 0.1.0\n"
+"Project-Id-Version: Plogins Pair - Product Recommendations for WooCommerce "
+"0.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pair\n"
 "POT-Creation-Date: 2026-07-01T15:11:05+00:00\n"
 "PO-Revision-Date: 2026-07-01T15:11:05+00:00\n"
-"Last-Translator: motylanogha <szatkowski.mariusz@gmail.com>\n"
+"Last-Translator: wppoland.com <hello@wppoland.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +20,7 @@ msgstr ""
 #. Plugin Name of the plugin
 #: plogins-pair.php
 msgid "Plogins Pair - Product Recommendations for WooCommerce"
-msgstr "Par de Plogins - Recomendaciones de productos para WooCommerce"
+msgstr "Plogins Pair - Recomendaciones de productos para WooCommerce"
 
 #. Plugin URI of the plugin
 #: plogins-pair.php
@@ -34,8 +35,8 @@ msgid ""
 "setup, no layout shift."
 msgstr ""
 "Recomendaciones automáticas de productos para WooCommerce: un bloque "
-"\"También te puede gustar\" en la página del producto y sugerencias de venta"
-" cruzada en el carrito. Sin configuración manual ni cambios de diseño."
+"\"También te puede gustar\" en la página del producto y sugerencias de venta "
+"cruzada en el carrito. Sin configuración manual ni cambios de diseño."
 
 #. Author of the plugin
 #: plogins-pair.php
@@ -66,7 +67,7 @@ msgstr "Plogins Pair requiere que WooCommerce esté activo."
 #: src/Admin/Settings.php:40 src/Admin/Settings.php:41
 #: templates/settings.php:35
 msgid "Pair recommendations"
-msgstr "Recomendaciones de pareja"
+msgstr "Recomendaciones de Pair"
 
 #: src/Admin/Settings.php:131
 msgid "Same category (by popularity)"
@@ -98,13 +99,13 @@ msgid ""
 "product cards, so they match your shop. Pick where they appear and how the "
 "products are chosen."
 msgstr ""
-"Recomendaciones automáticas de productos. Los bloques se representan con las"
-" tarjetas de producto de tu tema, para que coincidan con tu tienda. Elige "
+"Recomendaciones automáticas de productos. Los bloques se representan con las "
+"tarjetas de producto de tu tema, para que coincidan con tu tienda. Elige "
 "dónde aparecen y cómo se eligen los productos."
 
 #: templates/settings.php:43
 msgid "Enable Pair on the storefront"
-msgstr "Habilitar par en el escaparate"
+msgstr "Habilitar Pair en la tienda"
 
 #: templates/settings.php:50
 msgid "Product page"
@@ -123,9 +124,9 @@ msgid ""
 "Related uses the product's categories, ordered by popularity. Others use "
 "tags, best sellers, newest, or what the shopper recently viewed."
 msgstr ""
-"Usos relacionados de las categorías del producto, ordenadas por popularidad."
-" Otros usan etiquetas, los más vendidos, lo más nuevo o lo que el comprador "
-"vio recientemente."
+"«Relacionados» usa las categorías del producto, ordenadas por popularidad. "
+"Otras opciones usan etiquetas, los más vendidos, lo más nuevo o lo que el "
+"comprador vio recientemente."
 
 #: templates/settings.php:63 templates/settings.php:84
 #: templates/settings.php:105
@@ -167,7 +168,7 @@ msgstr "En páginas de productos"
 
 #: templates/settings.php:102
 msgid "On the cart"
-msgstr "en el carro"
+msgstr "En el carrito"
 
 #: templates/settings.php:112
 msgid "Display"
@@ -179,7 +180,7 @@ msgstr "Productos por bloque"
 
 #: templates/settings.php:119
 msgid "Columns"
-msgstr "Columnas"
+msgstr "columnas"
 
 #: templates/settings.php:123
 msgid "Only recommend products that are in stock"
@@ -187,7 +188,7 @@ msgstr "Recomendar sólo productos que estén en stock."
 
 #: templates/settings.php:134
 msgid "Shortcodes"
-msgstr "Códigos cortos"
+msgstr "Shortcodes"
 
 #: templates/settings.php:136
 msgid "Place a recommendation block anywhere:"
@@ -196,3 +197,63 @@ msgstr "Coloque un bloque de recomendación en cualquier lugar:"
 #: templates/settings.php:137
 msgid "Place a recently viewed block anywhere:"
 msgstr "Coloque un bloque visto recientemente en cualquier lugar:"
+
+#: src/Admin/ProUpsell.php:84
+msgid "Wkrótce"
+msgstr "Próximamente"
+
+#: src/Admin/ProUpsell.php:84
+msgid "Coming soon"
+msgstr "Próximamente"
+
+#. translators: %d: yearly price in PLN
+#: src/Admin/ProUpsell.php:89
+#, php-format
+msgid "od %d zł/rok"
+msgstr "desde %d zł/año"
+
+#. translators: 1: currency symbol, 2: yearly price
+#: src/Admin/ProUpsell.php:94
+#, php-format
+msgid "from %1$s%2$d/yr"
+msgstr "desde %1$s%2$d/año"
+
+#: src/Admin/ProUpsell.php:103
+msgid "Upgrade to PRO"
+msgstr "Mejora a PRO"
+
+#: src/Admin/ProUpsell.php:104
+msgid "Powiadom mnie"
+msgstr "Avísame"
+
+#: src/Admin/ProUpsell.php:104
+msgid "Get notified"
+msgstr "Avísame"
+
+#: src/Admin/ProUpsell.php:134
+msgid "Permission denied."
+msgstr "Permiso denegado."
+
+#. translators: %s: PRO edition name
+#: src/Admin/ProUpsell.php:164
+#, php-format
+msgid "Do more with %s"
+msgstr "Haz más con %s"
+
+#: src/Admin/ProUpsell.php:171
+msgid "Dismiss this notice"
+msgstr "Descartar este aviso"
+
+#: src/Admin/ProUpsell.php:188
+msgid "Unlock every PRO feature"
+msgstr "Desbloquea todas las funciones PRO"
+
+#: src/Admin/ProUpsell.php:201
+msgid "one licence, every PRO feature"
+msgstr "una licencia, todas las funciones PRO"
+
+#. translators: %s: PRO edition name
+#: src/Admin/ProUpsell.php:220
+#, php-format
+msgid "What %s adds"
+msgstr "Lo que añade %s"

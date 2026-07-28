@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name:       Plogins Pair - Product Recommendations for WooCommerce
+ * Plugin Name:       Pair - Product Recommendations for WooCommerce
  * Plugin URI:        https://plogins.com/plogins-pair/
  * Description:        Automatic product recommendations for WooCommerce: a "You may also like" block on the product page and cross-sell suggestions in the cart. No manual setup, no layout shift.
- * Version:           1.0.1
+ * Version:           1.0.4
  * Requires at least: 6.5
  * Requires PHP:      8.1
  * Requires Plugins:  woocommerce
@@ -14,6 +14,7 @@
  * Text Domain:       plogins-pair
  * Domain Path:       /languages
  * WC requires at least: 8.0
+ * WC tested up to: 10.9
  *
  * @package Pair
  */
@@ -24,7 +25,7 @@ namespace Pair;
 
 defined('ABSPATH') || exit;
 
-const VERSION     = '1.0.1';
+const VERSION     = '1.0.4';
 const PLUGIN_FILE = __FILE__;
 
 define(__NAMESPACE__ . '\PAIR_DIR', plugin_dir_path(__FILE__));

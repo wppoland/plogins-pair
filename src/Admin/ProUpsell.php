@@ -18,9 +18,9 @@ defined('ABSPATH') || exit;
  * no trialware). Content comes from config/pro-upsell.php, generated from the
  * plogins.com registry, so the feature copy always matches the real PRO edition.
  *
- * Pair PRO is not sellable yet (coming soon): when the data file reports
- * `sellable => false` the CTAs turn into a soft "Get notified" link to the
- * product page and no price is shown, instead of a hard "Upgrade to PRO" buy.
+ * Pair PRO is not sellable yet (coming soon): there is no hard buy button,
+ * no price is shown, and the call to action invites the shopper to be notified
+ * instead of to purchase.
  */
 final class ProUpsell
 {
@@ -45,7 +45,7 @@ final class ProUpsell
         return $this->data;
     }
 
-    /** Whether the PRO edition can actually be bought yet (false = coming soon). */
+    /** Whether the PRO edition can actually be bought yet. */
     private function sellable(): bool
     {
         return (bool) ($this->data()['sellable'] ?? false);
@@ -66,9 +66,9 @@ final class ProUpsell
     {
         $default = (string) ($this->data()['url'] ?? 'https://plogins.com/plogins-pair-pro/');
         /**
-         * Filters the URL the PRO CTA buttons point at.
+         * Filters the URL the PRO call-to-action buttons point at.
          *
-         * @param string $url Default the Pair PRO product page.
+         * @param string $url Default the Pair PRO page.
          */
         return (string) apply_filters('pair/pro_url', $default);
     }
@@ -76,14 +76,6 @@ final class ProUpsell
     private function isPolish(): bool
     {
         return str_starts_with((string) get_locale(), 'pl');
-    }
-
-    /** CTA button label: a hard buy when sellable, a soft notify when coming soon. */
-    private function ctaLabel(): string
-    {
-        return $this->sellable()
-            ? __('Upgrade to PRO', 'plogins-pair')
-            : ($this->isPolish() ? __('Powiadom mnie', 'plogins-pair') : __('Get notified', 'plogins-pair'));
     }
 
     private function priceLabel(): string
@@ -102,6 +94,14 @@ final class ProUpsell
             return sprintf(__('from %1$s%2$d/yr', 'plogins-pair'), $cur, (int) $d['price_from']);
         }
         return '';
+    }
+
+    /** The call-to-action label: buy when sellable, otherwise a soft notify. */
+    private function ctaLabel(): string
+    {
+        return $this->sellable()
+            ? __('Upgrade to PRO', 'plogins-pair')
+            : ($this->isPolish() ? __('Powiadom mnie', 'plogins-pair') : __('Get notified', 'plogins-pair'));
     }
 
     /** @return array<int, array{title: string, desc: string}> */
