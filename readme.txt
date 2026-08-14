@@ -4,7 +4,7 @@ Tags: woocommerce, product recommendations, related products, recently viewed, c
 Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 8.1
-Stable tag: 1.0.5
+Stable tag: 1.0.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -87,6 +87,9 @@ No. Blocks render with your theme's product-card markup and a small stylesheet, 
 = Can I control where the blocks appear? =
 Yes. Turn the product-page, cart and recently-viewed blocks on or off independently, and use the shortcodes to place a block anywhere.
 
+= Does the cart block work with the WooCommerce Cart block? =
+Not automatically. The cart placements attach to the classic cart template, which the WooCommerce Cart block does not use. If your cart page is built with the Cart block, the settings screen says so and you can add `[pair_recommendations]` or `[pair_recently_viewed]` to that page in a shortcode block instead. The product-page block is unaffected.
+
 = Does this plugin work on WordPress Multisite? =
 
 Yes. This plugin is compatible with WordPress Multisite. Network activate it or activate it on individual sites; each site keeps its own settings and data.
@@ -106,6 +109,9 @@ This plugin does not connect to any external services. Recommendations are compu
 Plogins Pair includes Polish, German and Spanish translations for the plugin interface. The text domain is `plogins-pair`, so WordPress.org language packs can also override or extend these bundled translations.
 
 == Changelog ==
+
+= 1.0.6 =
+* The settings screen now tells you when your cart page is built with the WooCommerce Cart block. The cart cross-sell and recently viewed placements need the classic cart, so instead of ticking a box and getting nothing on the front end, you see a note with the shortcode that does work on a block cart page.
 
 = 1.0.5 =
 * The PRO notice in the admin now lists what Pair PRO actually ships. It had been stuck on the first four features while PRO grew to nine, so it never mentioned the bundle discount, manual curation, category rules, A/B testing or the analytics screen.

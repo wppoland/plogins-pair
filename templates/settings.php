@@ -6,6 +6,7 @@
  *
  * @var array<string, mixed>  $s
  * @var array<string, string> $strategies
+ * @var bool                  $cartIsBlock
  */
 
 declare(strict_types=1);
@@ -29,6 +30,27 @@ $pair_strategy_select = static function (string $name, string $current) use ($st
 /** A small help tooltip. */
 $pair_help = static function (string $text): void {
     echo '<span class="pair-help" tabindex="0" aria-label="' . esc_attr($text) . '" data-pair-help="' . esc_attr($text) . '">?</span>';
+};
+
+/**
+ * Say plainly that a block cart page swallows the cart placements.
+ *
+ * Both cart blocks are hooked on woocommerce_after_cart, an action only the
+ * classic cart template fires. On a Cart block page the merchant ticked the
+ * box, saved, and the shopper saw an ordinary cart with no suggestions at all.
+ */
+$pair_block_cart_note = static function (string $shortcode) use ($cartIsBlock): void {
+    if (! $cartIsBlock) {
+        return;
+    }
+
+    echo '<p class="pair-note">';
+    printf(
+        /* translators: %s: the shortcode that places this block by hand. */
+        esc_html__('Your cart page uses the WooCommerce Cart block, which does not fire the classic cart hooks, so this block will not appear there. Switch the cart page to the classic cart shortcode, or add %s to the cart page in a shortcode block.', 'plogins-pair'),
+        '<code>' . esc_html($shortcode) . '</code>',
+    );
+    echo '</p>';
 };
 ?>
 <div class="wrap pair-settings">
@@ -77,6 +99,7 @@ $pair_help = static function (string $text): void {
                     </label>
                 </header>
                 <div class="pair-fields" data-pair-panel="cart">
+                    <?php $pair_block_cart_note('[pair_recommendations]'); ?>
                     <p>
                         <label><?php echo esc_html__('How to choose products', 'plogins-pair'); ?></label>
                         <?php $pair_strategy_select('cart_strategy', (string) $s['cart_strategy']); ?>
@@ -103,6 +126,7 @@ $pair_help = static function (string $text): void {
                         <label><input type="checkbox" name="pair_settings[recently_on_single]" value="1" <?php checked(! empty($s['recently_on_single'])); ?> /> <?php echo esc_html__('On product pages', 'plogins-pair'); ?></label><br />
                         <label><input type="checkbox" name="pair_settings[recently_on_cart]" value="1" <?php checked(! empty($s['recently_on_cart'])); ?> /> <?php echo esc_html__('On the cart', 'plogins-pair'); ?></label>
                     </p>
+                    <?php $pair_block_cart_note('[pair_recently_viewed]'); ?>
                     <p>
                         <label for="pair_recently_heading"><?php echo esc_html__('Heading', 'plogins-pair'); ?></label>
                         <input type="text" id="pair_recently_heading" class="regular-text" name="pair_settings[recently_heading]" value="<?php echo esc_attr((string) $s['recently_heading']); ?>" />

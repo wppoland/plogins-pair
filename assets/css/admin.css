@@ -64,6 +64,18 @@
 .pair-fields select, .pair-fields input[type="number"] { min-width: 220px; }
 .pair-fields[hidden] { display: none; }
 
+.pair-note {
+    margin: 0 0 12px;
+    padding: 8px 10px;
+    border-inline-start: 3px solid #d97706;
+    border-radius: 4px;
+    background: #fef3c7;
+    color: #1d2327;
+    font-size: 12.5px;
+    line-height: 1.5;
+}
+.pair-note code { font-size: 12px; background: rgba(0, 0, 0, .06); }
+
 .pair-help {
     display: inline-flex;
     align-items: center;

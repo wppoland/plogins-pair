@@ -44,6 +44,10 @@ final class RecommendationsService implements HasHooks
             add_action('woocommerce_after_single_product_summary', [$this, 'renderRecentlyViewed'], 16);
         }
 
+        // woocommerce_after_cart comes from the classic cart template, so a
+        // store running the Cart block gets nothing here however the boxes are
+        // ticked. The settings screen now warns about that and points at the
+        // shortcodes, which do work inside a block page.
         if (! empty($s['show_on_cart'])) {
             add_action('woocommerce_after_cart', [$this, 'renderCart']);
         }
