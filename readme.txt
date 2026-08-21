@@ -41,10 +41,10 @@ Every strategy falls back to recent products, so a block is never awkwardly empt
 * Fully translatable, accessible headings and labels.
 
 = Documentation and links =
-* **Documentation** - https://plogins.com/plogins-pair/docs/
-* **Plugin page** - https://plogins.com/plogins-pair/
-* **Source code** - https://github.com/wppoland/plogins-pair
-* **Bug reports and feature requests** - https://github.com/wppoland/plogins-pair/issues
+* **Documentation**: [plogins.com/plogins-pair/docs/](https://plogins.com/plogins-pair/docs/)
+* **Plugin page**: [plogins.com/plogins-pair/](https://plogins.com/plogins-pair/)
+* **Source code**: [github.com/wppoland/plogins-pair](https://github.com/wppoland/plogins-pair)
+* **Bug reports and feature requests**: [github.com/wppoland/plogins-pair/issues](https://github.com/wppoland/plogins-pair/issues)
 
 = Features =
 * Automatic "You may also like" block after the single product summary.
