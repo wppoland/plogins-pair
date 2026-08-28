@@ -84,10 +84,6 @@ final class ProUpsell
             return $this->isPolish() ? __('Wkrótce', 'plogins-pair') : __('Coming soon', 'plogins-pair');
         }
         $d = $this->data();
-        if ($this->isPolish() && ! empty($d['price_pln'])) {
-            /* translators: %d: yearly price in PLN */
-            return sprintf(__('od %d zł/rok', 'plogins-pair'), (int) $d['price_pln']);
-        }
         if (! empty($d['price_from'])) {
             $cur = ($d['currency'] ?? 'EUR') === 'EUR' ? '€' : (string) $d['currency'] . ' ';
             /* translators: 1: currency symbol, 2: yearly price */

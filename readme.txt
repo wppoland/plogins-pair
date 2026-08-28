@@ -4,7 +4,7 @@ Tags: woocommerce, product recommendations, related products, recently viewed, c
 Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 8.1
-Stable tag: 1.0.6
+Stable tag: 1.0.7
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -109,6 +109,9 @@ This plugin does not connect to any external services. Recommendations are compu
 Plogins Pair includes Polish, German and Spanish translations for the plugin interface. The text domain is `plogins-pair`, so WordPress.org language packs can also override or extend these bundled translations.
 
 == Changelog ==
+
+= 1.0.7 =
+* Fixed the PRO promo on the settings screen quoting a price in PLN. PRO is priced and charged in EUR, so an admin on a Polish site was shown a zloty amount and then billed in euro, and the zloty figure was a fixed conversion that drifted from the real charge as the rate moved. The promo now shows the euro price that is actually taken.
 
 = 1.0.6 =
 * The settings screen now tells you when your cart page is built with the WooCommerce Cart block. The cart cross-sell and recently viewed placements need the classic cart, so instead of ticking a box and getting nothing on the front end, you see a note with the shortcode that does work on a block cart page.
