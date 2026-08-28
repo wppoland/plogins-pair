@@ -15,7 +15,6 @@ return [
     'sellable'   => false,
     'price_from' => 29,
     'currency'   => 'EUR',
-    'price_pln'  => 129,
     'lead'       => [
         'en' => 'Recommendations from real demand instead of categories alone, plus control over what shows where, and the numbers to tell whether it works.',
         'pl' => 'Rekomendacje z realnego popytu zamiast wyłącznie kategorii, plus kontrola nad tym, co i gdzie się pokazuje, i pomiar, czy to działa.',
