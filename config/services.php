@@ -12,6 +12,7 @@ declare(strict_types=1);
 use Pair\Admin\Settings;
 use Pair\Container;
 use Pair\Migrator;
+use Pair\Service\ElementorWidgets;
 use Pair\Service\Recommender;
 use Pair\Service\RecommendationsService;
 use Pair\Service\Tracker;
@@ -30,4 +31,6 @@ return static function (Container $c): void {
         static fn (Container $c): RecommendationsService => new RecommendationsService($c->get(Recommender::class)),
     );
     $c->singleton(Settings::class, static fn (): Settings => new Settings());
+    // Elementor integration (self-guards on the elementor/widgets/register hook).
+    $c->singleton(ElementorWidgets::class, static fn (): ElementorWidgets => new ElementorWidgets());
 };

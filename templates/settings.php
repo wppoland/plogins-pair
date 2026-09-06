@@ -7,6 +7,7 @@
  * @var array<string, mixed>  $s
  * @var array<string, string> $strategies
  * @var bool                  $cartIsBlock
+ * @var \Pair\Admin\ProUpsell $pro
  */
 
 declare(strict_types=1);
@@ -55,10 +56,12 @@ $pair_block_cart_note = static function (string $shortcode) use ($cartIsBlock): 
 ?>
 <div class="wrap pair-settings">
     <h1><span class="pair-logo" aria-hidden="true"></span> <?php echo esc_html__('Pair recommendations', 'plogins-pair'); ?></h1>
+
+    <?php $pro->banner(); ?>
+
     <p class="pair-intro"><?php echo esc_html__('Automatic product recommendations. Blocks are rendered with your theme\'s product cards, so they match your shop. Pick where they appear and how the products are chosen.', 'plogins-pair'); ?></p>
 
-    <?php $this->proUpsell()->banner(); ?>
-
+    <div class="pair-cols">
     <form action="options.php" method="post">
         <?php settings_fields('pair-settings'); ?>
 
@@ -156,6 +159,11 @@ $pair_block_cart_note = static function (string $shortcode) use ($cartIsBlock): 
         <?php submit_button(); ?>
     </form>
 
+        <?php $pro->aside(); ?>
+    </div>
+
+    <?php $pro->cards(); ?>
+
     <div class="pair-card pair-card--muted">
         <header><h2><?php echo esc_html__('Shortcodes', 'plogins-pair'); ?></h2></header>
         <div class="pair-fields">
@@ -163,6 +171,4 @@ $pair_block_cart_note = static function (string $shortcode) use ($cartIsBlock): 
             <p><?php echo esc_html__('Place a recently viewed block anywhere:', 'plogins-pair'); ?> <code>[pair_recently_viewed count="4"]</code></p>
         </div>
     </div>
-
-    <?php $this->proUpsell()->cards(); ?>
 </div>
