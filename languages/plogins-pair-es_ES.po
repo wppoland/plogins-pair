@@ -2,8 +2,7 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Plogins Pair - Product Recommendations for WooCommerce "
-"0.1.0\n"
+"Project-Id-Version: Plogins Pair - Product Recommendations for WooCommerce 0.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pair\n"
 "POT-Creation-Date: 2026-07-01T15:11:05+00:00\n"
 "PO-Revision-Date: 2026-07-01T15:11:05+00:00\n"
@@ -35,8 +34,8 @@ msgid ""
 "setup, no layout shift."
 msgstr ""
 "Recomendaciones automáticas de productos para WooCommerce: un bloque "
-"\"También te puede gustar\" en la página del producto y sugerencias de venta "
-"cruzada en el carrito. Sin configuración manual ni cambios de diseño."
+"\"También te puede gustar\" en la página del producto y sugerencias de venta"
+" cruzada en el carrito. Sin configuración manual ni cambios de diseño."
 
 #. Author of the plugin
 #: plogins-pair.php
@@ -99,8 +98,8 @@ msgid ""
 "product cards, so they match your shop. Pick where they appear and how the "
 "products are chosen."
 msgstr ""
-"Recomendaciones automáticas de productos. Los bloques se representan con las "
-"tarjetas de producto de tu tema, para que coincidan con tu tienda. Elige "
+"Recomendaciones automáticas de productos. Los bloques se representan con las"
+" tarjetas de producto de tu tema, para que coincidan con tu tienda. Elige "
 "dónde aparecen y cómo se eligen los productos."
 
 #: templates/settings.php:43
@@ -180,7 +179,7 @@ msgstr "Productos por bloque"
 
 #: templates/settings.php:119
 msgid "Columns"
-msgstr "columnas"
+msgstr "Columnas"
 
 #: templates/settings.php:123
 msgid "Only recommend products that are in stock"
@@ -257,3 +256,43 @@ msgstr "una licencia, todas las funciones PRO"
 #, php-format
 msgid "What %s adds"
 msgstr "Lo que añade %s"
+
+#: src/Elementor/RecentlyViewedWidget.php:90
+#: src/Elementor/RecommendationsWidget.php:90
+msgid "Leave empty to use the plugin default."
+msgstr "Déjalo vacío para usar el valor predeterminado del plugin."
+
+#: src/Elementor/RecentlyViewedWidget.php:97
+#: src/Elementor/RecommendationsWidget.php:97
+msgid "Number of products"
+msgstr "Número de productos"
+
+#. Plugin Name of the plugin
+#: plogins-pair.php
+msgid "Pair - Product Recommendations for WooCommerce"
+msgstr "Pair - Product Recommendations for WooCommerce"
+
+#: src/Elementor/RecommendationsWidget.php:43
+msgid "Product Recommendations"
+msgstr "Recomendaciones de productos"
+
+#: src/Elementor/RecentlyViewedWidget.php:43
+msgid "Recently Viewed"
+msgstr "Visto recientemente"
+
+#: src/Elementor/RecommendationsWidget.php:81
+msgid "Recommendations"
+msgstr "Recomendaciones"
+
+#. translators: %s: the shortcode that places this block by hand.
+#: templates/settings.php:51
+msgid ""
+"Your cart page uses the WooCommerce Cart block, which does not fire the "
+"classic cart hooks, so this block will not appear there. Switch the cart "
+"page to the classic cart shortcode, or add %s to the cart page in a "
+"shortcode block."
+msgstr ""
+"Tu página de carrito usa el bloque Carrito de WooCommerce, que no dispara "
+"los hooks del carrito clásico, así que este bloque no aparecerá ahí. Cambia "
+"la página de carrito al shortcode del carrito clásico o añade %s a la página"
+" de carrito en un bloque de shortcode."

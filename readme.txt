@@ -4,7 +4,7 @@ Tags: woocommerce, product recommendations, related products, recently viewed, c
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 1.0.9
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -54,7 +54,7 @@ Every strategy falls back to recent products, so a block is never awkwardly empt
 * Configurable number of products (1 to 12) and columns (1 to 6).
 * Optional "in stock only" filter.
 * Editable headings for every block.
-* [pair_recommendations] and [pair_recently_viewed] shortcodes to place blocks anywhere.
+* [pair_recommendations] and [pair_recently_viewed] shortcodes to place blocks anywhere, plus matching Elementor widgets when Elementor is active.
 * Theme-styled product cards, no custom front-end JavaScript, no layout shift.
 
 = Shortcodes =
@@ -109,6 +109,10 @@ This plugin does not connect to any external services. Recommendations are compu
 Plogins Pair is fully translatable and ships the `plogins-pair.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.1.0 =
+* Added: Elementor widgets for the recommendations block and the recently-viewed row, so both can be placed anywhere in an Elementor layout instead of only at their hooked positions. Elementor is optional; nothing loads without it.
+* Added: the `pair/recommendations` filter, so an add-on can curate or reorder the picks before they render.
 
 = 1.0.9 =
 * Plugin Check: stop passing `exclude` into `wc_get_products()`. Seed and cart products are still omitted; they are dropped after the query instead.

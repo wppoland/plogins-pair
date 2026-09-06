@@ -2,8 +2,7 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Plogins Pair - Product Recommendations for WooCommerce "
-"0.1.0\n"
+"Project-Id-Version: Plogins Pair - Product Recommendations for WooCommerce 0.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pair\n"
 "POT-Creation-Date: 2026-07-01T15:11:05+00:00\n"
 "PO-Revision-Date: 2026-07-01T15:11:05+00:00\n"
@@ -99,8 +98,8 @@ msgid ""
 "product cards, so they match your shop. Pick where they appear and how the "
 "products are chosen."
 msgstr ""
-"Automatische Produktempfehlungen. Blöcke werden mit den Produktkarten Ihres "
-"Themes gerendert, sodass sie zu deinem Shop passen. Wähle aus, wo sie "
+"Automatische Produktempfehlungen. Blöcke werden mit den Produktkarten deines"
+" Themes gerendert, sodass sie zu deinem Shop passen. Wähle aus, wo sie "
 "erscheinen und wie die Produkte ausgewählt werden."
 
 #: templates/settings.php:43
@@ -124,8 +123,8 @@ msgid ""
 "Related uses the product's categories, ordered by popularity. Others use "
 "tags, best sellers, newest, or what the shopper recently viewed."
 msgstr ""
-"„Verwandt“ verwendet die Kategorien des Produkts, sortiert nach Beliebtheit. "
-"Andere verwenden Tags, Bestseller, Neueste oder das, was sich der Käufer "
+"„Verwandt“ verwendet die Kategorien des Produkts, sortiert nach Beliebtheit."
+" Andere verwenden Tags, Bestseller, Neueste oder das, was sich der Käufer "
 "kürzlich angesehen hat."
 
 #: templates/settings.php:63 templates/settings.php:84
@@ -158,8 +157,8 @@ msgid ""
 "Tracks the products a visitor views in a first-party cookie (product IDs "
 "only) and shows them again. Nothing is sent anywhere."
 msgstr ""
-"Verfolgt die Produkte, die ein Besucher in einem Erstanbieter-Cookie ansieht "
-"(nur Produkt-IDs) und zeigt sie erneut an. Es wird nichts irgendwo "
+"Verfolgt die Produkte, die ein Besucher in einem Erstanbieter-Cookie ansieht"
+" (nur Produkt-IDs) und zeigt sie erneut an. Es wird nichts irgendwo "
 "hingeschickt."
 
 #: templates/settings.php:101
@@ -196,7 +195,8 @@ msgstr "Platziere einen Empfehlungsblock an einer beliebigen Stelle:"
 
 #: templates/settings.php:137
 msgid "Place a recently viewed block anywhere:"
-msgstr "Platziere einen kürzlich angezeigten Block an einer beliebigen Stelle:"
+msgstr ""
+"Platziere einen kürzlich angezeigten Block an einer beliebigen Stelle:"
 
 #: src/Admin/ProUpsell.php:84
 msgid "Wkrótce"
@@ -257,3 +257,43 @@ msgstr "eine Lizenz, alle PRO-Funktionen"
 #, php-format
 msgid "What %s adds"
 msgstr "Was %s ergänzt"
+
+#: src/Elementor/RecentlyViewedWidget.php:90
+#: src/Elementor/RecommendationsWidget.php:90
+msgid "Leave empty to use the plugin default."
+msgstr "Leer lassen, um die Standardeinstellung des Plugins zu verwenden."
+
+#: src/Elementor/RecentlyViewedWidget.php:97
+#: src/Elementor/RecommendationsWidget.php:97
+msgid "Number of products"
+msgstr "Anzahl der Produkte"
+
+#. Plugin Name of the plugin
+#: plogins-pair.php
+msgid "Pair - Product Recommendations for WooCommerce"
+msgstr "Pair - Product Recommendations for WooCommerce"
+
+#: src/Elementor/RecommendationsWidget.php:43
+msgid "Product Recommendations"
+msgstr "Produktempfehlungen"
+
+#: src/Elementor/RecentlyViewedWidget.php:43
+msgid "Recently Viewed"
+msgstr "Kürzlich angesehen"
+
+#: src/Elementor/RecommendationsWidget.php:81
+msgid "Recommendations"
+msgstr "Empfehlungen"
+
+#. translators: %s: the shortcode that places this block by hand.
+#: templates/settings.php:51
+msgid ""
+"Your cart page uses the WooCommerce Cart block, which does not fire the "
+"classic cart hooks, so this block will not appear there. Switch the cart "
+"page to the classic cart shortcode, or add %s to the cart page in a "
+"shortcode block."
+msgstr ""
+"Deine Warenkorbseite verwendet den WooCommerce-Warenkorb-Block, der die "
+"klassischen Warenkorb-Hooks nicht auslöst, daher erscheint dieser Block dort"
+" nicht. Stelle die Warenkorbseite auf den klassischen Warenkorb-Shortcode um"
+" oder füge %s in einem Shortcode-Block zur Warenkorbseite hinzu."
