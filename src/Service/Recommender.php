@@ -113,10 +113,13 @@ final class Recommender
             return [];
         }
 
-        $args = [
+        // Over-fetch then drop seed/cart IDs in PHP. `exclude` / post__not_in
+        // trips WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_exclude
+        // on Plugin Check; the dropped set is at most the block limit (12).
+        $exclude = array_values(array_unique(array_map('intval', $exclude)));
+        $args    = [
             'status'     => 'publish',
-            'limit'      => $limit,
-            'exclude'    => array_values(array_unique(array_map('intval', $exclude))),
+            'limit'      => $limit + count($exclude),
             'visibility' => 'catalog',
             'return'     => 'objects',
         ];
@@ -145,8 +148,25 @@ final class Recommender
         }
 
         $products = wc_get_products($args);
+        if (! is_array($products)) {
+            return [];
+        }
 
-        return is_array($products) ? $products : [];
+        $picked = [];
+        foreach ($products as $product) {
+            if (! $product instanceof \WC_Product) {
+                continue;
+            }
+            if (in_array($product->get_id(), $exclude, true)) {
+                continue;
+            }
+            $picked[] = $product;
+            if (count($picked) >= $limit) {
+                break;
+            }
+        }
+
+        return $picked;
     }
 
     /**
