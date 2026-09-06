@@ -134,6 +134,12 @@
 	--pair-pro-gap: 20px;
 }
 
+/* Two-column wrapper (form + promo aside); single column on narrow screens. */
+.pair-settings .pair-cols { display: grid; gap: var(--pair-pro-gap); grid-template-columns: 1fr; align-items: start; }
+@media (min-width: 1100px) {
+	.pair-settings .pair-cols { grid-template-columns: minmax(0, 1fr) 300px; }
+}
+
 /* Top banner */
 .pair-settings .pair-pro-banner {
 	display: flex;

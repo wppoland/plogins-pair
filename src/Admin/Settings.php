@@ -125,6 +125,7 @@ final class Settings implements HasHooks
         $s           = $this->settings();
         $strategies  = $this->strategyLabels();
         $cartIsBlock = $this->cartUsesBlock();
+        $pro         = $this->proUpsell();
 
         require PAIR_DIR . 'templates/settings.php';
     }
