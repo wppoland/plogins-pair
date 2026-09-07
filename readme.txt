@@ -4,7 +4,7 @@ Tags: woocommerce, product recommendations, related products, recently viewed, c
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -61,6 +61,45 @@ Every strategy falls back to recent products, so a block is never awkwardly empt
 * `[pair_recommendations strategy="related" count="4" columns="4"]` - a recommendation block. On a product page it uses that product; elsewhere it uses the cart. `strategy` is optional (related, tags, bestsellers, newest, recently).
 * `[pair_recently_viewed count="4" columns="4"]` - the shopper's recently viewed products.
 
+== Plogins Pair PRO ==
+
+The free plugin is complete for what it does: automatic recommendations from your
+catalog, on the product page and the cart, with no curation and nothing
+time-limited. **Plogins Pair PRO** is a separate add-on for stores that want
+recommendations driven by what people actually bought together, and want to
+measure what the blocks earn.
+
+                                                Free   PRO
+    ------------------------------------------------------
+    "You may also like" on the product page      yes   yes
+    Cross-sell under the classic cart            yes   yes
+    Recently viewed block                        yes   yes
+    Five strategies, chosen per block            yes   yes
+    Shortcodes and Elementor widgets             yes   yes
+    Frequently bought together, from orders        -   yes
+    Add all to cart in one button                  -   yes
+    Hand-pick what a product recommends            -   yes
+    Rules per product category                     -   yes
+    Bundle discount applied to the cart            -   yes
+    Blocks on order-received and checkout          -   yes
+    Editor block                                   -   yes
+    A/B test two strategies against each other     -   yes
+    Click and conversion analytics                 -   yes
+
+**What PRO adds.** Frequently bought together, computed from your own completed
+orders rather than from the catalog, with a single "add all to cart" button and
+an optional bundle discount applied as a cart fee. A per-product picker for the
+cases where the automatic choice is wrong, and rules per product category.
+Placements on the order-received page and the classic checkout. A block for the
+editor. An A/B test that splits visitors between two strategies. Click and
+conversion analytics, so the blocks stop being a guess. From 29 EUR per year.
+
+Pair PRO requires the free plugin and does not replace it. If the free plugin is
+missing or disabled, PRO stays dormant and says so, rather than half-working.
+
+* **Plogins Pair PRO** - [plogins.com/plogins-pair-pro/](https://plogins.com/plogins-pair-pro/)
+* **Pricing** - [plogins.com/plogins-pair-pro/pricing/](https://plogins.com/plogins-pair-pro/pricing/)
+
 == Installation ==
 
 1. Install and activate WooCommerce.
@@ -109,6 +148,10 @@ This plugin does not connect to any external services. Recommendations are compu
 Plogins Pair is fully translatable and ships the `plogins-pair.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.1.1 =
+* Added a "Plogins Pair PRO" section to this page, with a free-versus-PRO grid. Every row was checked against the add-on's source, not its marketing copy.
+* The WordPress.org banner was redrawn. The old one was laid out taller than the 772x250 canvas it is cropped to, so the second feature line and the screenshot were sliced off at the edges.
 
 = 1.1.0 =
 * Added: Elementor widgets for the recommendations block and the recently-viewed row, so both can be placed anywhere in an Elementor layout instead of only at their hooked positions. Elementor is optional; nothing loads without it.
