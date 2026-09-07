@@ -61,6 +61,46 @@ Każda strategia w razie potrzeby sięga po najnowsze produkty, więc blok nigdy
 * `[pair_recommendations strategy="related" count="4" columns="4"]`, blok rekomendacji. Na stronie produktu używa tego produktu; w innych miejscach korzysta z koszyka. `strategy` jest opcjonalne (related, tags, bestsellers, newest, recently).
 * `[pair_recently_viewed count="4" columns="4"]`, ostatnio oglądane produkty klienta.
 
+== Plogins Pair PRO ==
+
+Darmowa wtyczka jest kompletna w tym, co robi: automatyczne rekomendacje z Twojego
+katalogu, na stronie produktu i pod koszykiem, bez ręcznego doboru i bez niczego
+ograniczonego czasowo. **Plogins Pair PRO** to osobny dodatek dla sklepów, które
+chcą rekomendacji wynikających z tego, co klienci naprawdę kupili razem, i chcą
+zmierzyć, ile te bloki zarabiają.
+
+                                                           Darmowa   PRO
+    --------------------------------------------------------------------
+    "Może Ci się spodobać" na stronie produktu                 tak   tak
+    Cross-sell pod klasycznym koszykiem                        tak   tak
+    Blok ostatnio oglądanych                                   tak   tak
+    Pięć strategii, wybieranych dla każdego bloku              tak   tak
+    Shortcode'y i widżety Elementora                           tak   tak
+    Często kupowane razem, z zamówień                            -   tak
+    Dodanie wszystkiego do koszyka jednym przyciskiem            -   tak
+    Ręczny wybór rekomendacji dla produktu                       -   tak
+    Reguły dla kategorii produktów                               -   tak
+    Rabat na zestaw naliczany w koszyku                          -   tak
+    Bloki na stronie podziękowania i w kasie                     -   tak
+    Blok do edytora                                              -   tak
+    Test A/B dwóch strategii                                     -   tak
+    Analityka kliknięć i konwersji                               -   tak
+
+**Co dodaje PRO.** Często kupowane razem, liczone z Twoich zrealizowanych zamówień,
+a nie z katalogu, z jednym przyciskiem "dodaj wszystko do koszyka" i opcjonalnym
+rabatem na zestaw naliczanym jako opłata w koszyku. Ręczny wybór produktów tam,
+gdzie automat się myli, oraz reguły dla kategorii produktów. Bloki na stronie
+podziękowania i w klasycznej kasie. Blok do edytora. Test A/B dzielący
+odwiedzających między dwie strategie. Analityka kliknięć i konwersji, żeby bloki
+przestały być zgadywanką. Od 29 EUR rocznie.
+
+Pair PRO wymaga darmowej wtyczki i jej nie zastępuje. Jeśli darmowej wtyczki nie ma
+albo jest wyłączona, PRO pozostaje uśpione i mówi o tym wprost, zamiast działać
+połowicznie.
+
+* **Plogins Pair PRO** - [plogins.com/plogins-pair-pro/](https://plogins.com/plogins-pair-pro/)
+* **Cennik** - [plogins.com/plogins-pair-pro/pricing/](https://plogins.com/plogins-pair-pro/pricing/)
+
 == Installation ==
 
 1. Zainstaluj i włącz WooCommerce.
@@ -87,6 +127,10 @@ Nie. Bloki renderują się przy użyciu znaczników karty produktu Twojego motyw
 = Can I control where the blocks appear? =
 Tak. Niezależnie włączaj i wyłączaj bloki na stronie produktu, w koszyku i ostatnio oglądanych, a shortcode’ów użyj, aby umieścić blok w dowolnym miejscu.
 
+= Does the cart block work with the WooCommerce Cart block? =
+
+Nie automatycznie. Bloki w koszyku podpinają się do klasycznego szablonu koszyka, z którego blok Koszyk WooCommerce nie korzysta. Jeśli Twoja strona koszyka jest zbudowana z bloku Koszyk, ekran ustawień to sygnalizuje, a Ty możesz dodać na tej stronie `[pair_recommendations]` lub `[pair_recently_viewed]` w bloku shortcode. Blok na stronie produktu działa bez zmian.
+
 = Does this plugin work on WordPress Multisite? =
 
 Tak. Ta wtyczka jest zgodna z WordPress Multisite. Włącz ją w całej sieci lub na poszczególnych witrynach; każda witryna zachowuje własne ustawienia i dane.
@@ -106,6 +150,32 @@ Ta wtyczka nie łączy się z żadnymi usługami zewnętrznymi. Rekomendacje są
 Plogins Pair zawiera polskie, niemieckie i hiszpańskie tłumaczenia interfejsu wtyczki. Domena tekstowa to `plogins-pair`, więc pakiety językowe z WordPress.org mogą też nadpisywać lub rozszerzać dołączone tłumaczenia.
 
 == Changelog ==
+
+= 1.1.1 =
+* Dodano na tej stronie sekcję "Plogins Pair PRO" wraz z zestawieniem wersji darmowej i PRO. Każdy wiersz sprawdzono w kodzie dodatku, a nie w materiałach marketingowych.
+* Przerysowano baner na WordPress.org. Poprzedni był złożony wyżej niż kadr 772x250, do którego jest przycinany, więc drugi wiersz z funkcją i zrzut ekranu były ucięte przy krawędziach.
+
+= 1.1.0 =
+* Dodano: widżety Elementora dla bloku rekomendacji i wiersza ostatnio oglądanych, dzięki czemu oba można umieścić w dowolnym miejscu układu Elementora, a nie tylko w miejscach ich zaczepienia. Elementor jest opcjonalny; bez niego nic się nie ładuje.
+* Dodano: filtr `pair/recommendations`, dzięki któremu dodatek może zmienić dobór lub kolejność produktów przed ich wyświetleniem.
+
+= 1.0.9 =
+* Plugin Check: zaprzestano przekazywania `exclude` do `wc_get_products()`. Produkt źródłowy i produkty z koszyka są nadal pomijane, ale odrzuca się je po zapytaniu, a nie w nim.
+
+= 1.0.8 =
+* Sprawdzono zgodność z WordPress 7.1. Zweryfikowano przez uruchomienie tej wersji na czystej instalacji 7.1 z WooCommerce 11.1, a nie przez zmianę nagłówka.
+
+= 1.0.7 =
+* Naprawiono promocję PRO na ekranie ustawień, która podawała cenę w złotych. PRO jest wyceniane i rozliczane w euro, więc administrator polskiego sklepu widział kwotę w złotych, a płacił w euro, przy czym kwota w złotych wynikała ze sztywnego przelicznika i rozjeżdżała się z rzeczywistą opłatą wraz z kursem. Promocja pokazuje teraz cenę w euro, która jest faktycznie pobierana.
+
+= 1.0.6 =
+* Ekran ustawień informuje teraz, gdy strona koszyka jest zbudowana z bloku Koszyk WooCommerce. Cross-sell w koszyku i ostatnio oglądane wymagają klasycznego koszyka, więc zamiast zaznaczyć pole i nie zobaczyć niczego na stronie sklepu, widzisz notatkę z shortcode'em, który działa na koszyku blokowym.
+
+= 1.0.5 =
+* Komunikat o PRO w panelu wymienia teraz to, co Pair PRO faktycznie zawiera. Utknął na pierwszych czterech funkcjach, podczas gdy PRO urosło do dziewięciu, więc nigdy nie wspominał o rabacie na zestaw, ręcznym wyborze, regułach kategorii, testach A/B ani ekranie analityki.
+
+= 1.0.3 =
+* Tłumaczenia: uzupełniono polskie, niemieckie i hiszpańskie dla panelu zachęty do PRO.
 
 = 1.0.2 =
 * Dodano dołączone polskie, niemieckie i hiszpańskie tłumaczenia interfejsu wtyczki.
