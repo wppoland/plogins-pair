@@ -253,6 +253,8 @@ final class RecommendationsService implements HasHooks
         /** @var array<string, mixed> $defaults */
         $defaults = require PAIR_DIR . 'config/defaults.php';
 
-        return array_merge($defaults, $stored);
+        // Resolved on the way out, where the heading is rendered, and never
+        // stored: the option must stay free of any one language.
+        return Texts::apply(array_merge($defaults, $stored));
     }
 }

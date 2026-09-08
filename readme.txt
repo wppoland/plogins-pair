@@ -4,7 +4,7 @@ Tags: woocommerce, product recommendations, related products, recently viewed, c
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -148,6 +148,11 @@ This plugin does not connect to any external services. Recommendations are compu
 Plogins Pair is fully translatable and ships the `plogins-pair.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.1.2 =
+* Fixed: the three storefront headings were frozen into the database in whichever language the admin happened to be using when the plugin was activated, and never changed again. They were translation calls inside a config file whose result is stored at activation, so a shop activated in English showed English headings to its customers however complete its language pack was, and switching the site language did nothing.
+* The headings are now resolved when they are rendered and never written back to the option. A heading you typed yourself is still used exactly as typed, and the settings fields show the default as a placeholder.
+* On update, a heading left byte for byte as the old English default is cleared so the translated one takes over. Anything you edited is matched exactly and kept.
 
 = 1.1.1 =
 * Added a "Plogins Pair PRO" section to this page, with a free-versus-PRO grid. Every row was checked against the add-on's source, not its marketing copy.
