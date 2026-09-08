@@ -88,7 +88,7 @@ $pair_block_cart_note = static function (string $shortcode) use ($cartIsBlock): 
                     </p>
                     <p>
                         <label for="pair_single_heading"><?php echo esc_html__('Heading', 'plogins-pair'); ?></label>
-                        <input type="text" id="pair_single_heading" class="regular-text" name="pair_settings[single_heading]" value="<?php echo esc_attr((string) $s['single_heading']); ?>" />
+                        <input type="text" id="pair_single_heading" class="regular-text" name="pair_settings[single_heading]" value="<?php echo esc_attr((string) $s['single_heading']); ?>" placeholder="<?php echo esc_attr__('You may also like', 'plogins-pair'); ?>" />
                     </p>
                 </div>
             </section>
@@ -110,7 +110,7 @@ $pair_block_cart_note = static function (string $shortcode) use ($cartIsBlock): 
                     </p>
                     <p>
                         <label for="pair_cart_heading"><?php echo esc_html__('Heading', 'plogins-pair'); ?></label>
-                        <input type="text" id="pair_cart_heading" class="regular-text" name="pair_settings[cart_heading]" value="<?php echo esc_attr((string) $s['cart_heading']); ?>" />
+                        <input type="text" id="pair_cart_heading" class="regular-text" name="pair_settings[cart_heading]" value="<?php echo esc_attr((string) $s['cart_heading']); ?>" placeholder="<?php echo esc_attr__('Add these to your order', 'plogins-pair'); ?>" />
                     </p>
                 </div>
             </section>
@@ -132,7 +132,7 @@ $pair_block_cart_note = static function (string $shortcode) use ($cartIsBlock): 
                     <?php $pair_block_cart_note('[pair_recently_viewed]'); ?>
                     <p>
                         <label for="pair_recently_heading"><?php echo esc_html__('Heading', 'plogins-pair'); ?></label>
-                        <input type="text" id="pair_recently_heading" class="regular-text" name="pair_settings[recently_heading]" value="<?php echo esc_attr((string) $s['recently_heading']); ?>" />
+                        <input type="text" id="pair_recently_heading" class="regular-text" name="pair_settings[recently_heading]" value="<?php echo esc_attr((string) $s['recently_heading']); ?>" placeholder="<?php echo esc_attr__('Recently viewed', 'plogins-pair'); ?>" />
                     </p>
                 </div>
             </section>
