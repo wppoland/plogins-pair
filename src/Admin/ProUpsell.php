@@ -18,9 +18,10 @@ defined('ABSPATH') || exit;
  * no trialware). Content comes from config/pro-upsell.php, generated from the
  * plogins.com registry, so the feature copy always matches the real PRO edition.
  *
- * Pair PRO is not sellable yet (coming soon): there is no hard buy button,
- * no price is shown, and the call to action invites the shopper to be notified
- * instead of to purchase.
+ * Whether a price and a buy button appear at all is the `sellable` flag in that
+ * generated config, which follows the registry. Do not restate the answer here:
+ * this docblock said "not sellable yet (coming soon)" for the whole time Pair
+ * PRO was on sale, and the config it described had gone stale the same way.
  */
 final class ProUpsell
 {
