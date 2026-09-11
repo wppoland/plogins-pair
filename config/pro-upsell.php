@@ -12,7 +12,7 @@ defined('ABSPATH') || exit;
 return [
     'name'       => 'Pair PRO',
     'url'        => 'https://plogins.com/plogins-pair-pro/pricing/',
-    'sellable'   => false,
+    'sellable'   => true,
     'price_from' => 29,
     'currency'   => 'EUR',
     'lead'       => [
