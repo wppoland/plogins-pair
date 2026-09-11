@@ -150,6 +150,7 @@ Plogins Pair is fully translatable and ships the `plogins-pair.pot` template. Tr
 == Changelog ==
 
 = 1.1.4 =
+* Fixed: the PRO upgrade promo kept selling to people who had already bought the paid edition. Only the banner could be dismissed, so the sidebar promo and the locked feature cards followed a paying customer around for good. The promo now checks whether the paid edition is active and steps aside when it is.
 * Fixed: the settings screen offered "get notified" instead of a buy button. Pair PRO has been on sale at 29 EUR since early September; the generated upsell config still carried the coming-soon flag from before that, and so did the comment describing it.
 
 = 1.1.3 =
