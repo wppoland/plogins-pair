@@ -2,9 +2,10 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Plogins Pair - Product Recommendations for WooCommerce 0.1.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pair\n"
-"POT-Creation-Date: 2026-07-01T15:11:05+00:00\n"
+"Project-Id-Version: Plogins Pair - Product Recommendations for WooCommerce "
+"0.1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/plogins-pair\n"
+"POT-Creation-Date: 2026-09-08T13:19:30+00:00\n"
 "PO-Revision-Date: 2026-07-01T15:11:05+00:00\n"
 "Last-Translator: wppoland.com <hello@wppoland.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -18,8 +19,8 @@ msgstr ""
 
 #. Plugin Name of the plugin
 #: plogins-pair.php
-msgid "Plogins Pair - Product Recommendations for WooCommerce"
-msgstr "Plogins Pair - Recomendaciones de productos para WooCommerce"
+msgid "Pair - Product Recommendations for WooCommerce"
+msgstr "Pair - Product Recommendations for WooCommerce"
 
 #. Plugin URI of the plugin
 #: plogins-pair.php
@@ -34,8 +35,8 @@ msgid ""
 "setup, no layout shift."
 msgstr ""
 "Recomendaciones automáticas de productos para WooCommerce: un bloque "
-"\"También te puede gustar\" en la página del producto y sugerencias de venta"
-" cruzada en el carrito. Sin configuración manual ni cambios de diseño."
+"\"También te puede gustar\" en la página del producto y sugerencias de venta "
+"cruzada en el carrito. Sin configuración manual ni cambios de diseño."
 
 #. Author of the plugin
 #: plogins-pair.php
@@ -47,155 +48,9 @@ msgstr "WPPoland.com"
 msgid "https://wppoland.com"
 msgstr "https://wppoland.com"
 
-#: config/defaults.php:20
-msgid "You may also like"
-msgstr "También te puede gustar"
-
-#: config/defaults.php:25
-msgid "Add these to your order"
-msgstr "Añade estos a tu pedido"
-
-#: config/defaults.php:31 templates/settings.php:92
-msgid "Recently viewed"
-msgstr "Visto recientemente"
-
-#: plogins-pair.php:47
+#: plogins-pair.php:48
 msgid "Plogins Pair requires WooCommerce to be active."
 msgstr "Plogins Pair requiere que WooCommerce esté activo."
-
-#: src/Admin/Settings.php:40 src/Admin/Settings.php:41
-#: templates/settings.php:35
-msgid "Pair recommendations"
-msgstr "Recomendaciones de Pair"
-
-#: src/Admin/Settings.php:131
-msgid "Same category (by popularity)"
-msgstr "Misma categoría (por popularidad)"
-
-#: src/Admin/Settings.php:132
-msgid "Shared tags"
-msgstr "Etiquetas compartidas"
-
-#: src/Admin/Settings.php:133
-msgid "Best sellers"
-msgstr "Los más vendidos"
-
-#: src/Admin/Settings.php:134
-msgid "Newest products"
-msgstr "Productos más nuevos"
-
-#: src/Admin/Settings.php:135
-msgid "Recently viewed by the shopper"
-msgstr "Visto recientemente por el comprador"
-
-#: templates/recommendations.php:27
-msgid "Recommended products"
-msgstr "Productos recomendados"
-
-#: templates/settings.php:36
-msgid ""
-"Automatic product recommendations. Blocks are rendered with your theme's "
-"product cards, so they match your shop. Pick where they appear and how the "
-"products are chosen."
-msgstr ""
-"Recomendaciones automáticas de productos. Los bloques se representan con las"
-" tarjetas de producto de tu tema, para que coincidan con tu tienda. Elige "
-"dónde aparecen y cómo se eligen los productos."
-
-#: templates/settings.php:43
-msgid "Enable Pair on the storefront"
-msgstr "Habilitar Pair en la tienda"
-
-#: templates/settings.php:50
-msgid "Product page"
-msgstr "Página del producto"
-
-#: templates/settings.php:53
-msgid "Show \"You may also like\""
-msgstr "Mostrar \"También te puede gustar\""
-
-#: templates/settings.php:58 templates/settings.php:79
-msgid "How to choose products"
-msgstr "Cómo elegir productos"
-
-#: templates/settings.php:60
-msgid ""
-"Related uses the product's categories, ordered by popularity. Others use "
-"tags, best sellers, newest, or what the shopper recently viewed."
-msgstr ""
-"«Relacionados» usa las categorías del producto, ordenadas por popularidad. "
-"Otras opciones usan etiquetas, los más vendidos, lo más nuevo o lo que el "
-"comprador vio recientemente."
-
-#: templates/settings.php:63 templates/settings.php:84
-#: templates/settings.php:105
-msgid "Heading"
-msgstr "Título"
-
-#: templates/settings.php:71
-msgid "Cart"
-msgstr "Carrito"
-
-#: templates/settings.php:74
-msgid "Show cross-sell suggestions"
-msgstr "Mostrar sugerencias de venta cruzada"
-
-#: templates/settings.php:81
-msgid ""
-"Based on the categories of the items already in the cart, excluding those "
-"items."
-msgstr ""
-"Basado en las categorías de los artículos que ya están en el carrito, "
-"excluyendo esos artículos."
-
-#: templates/settings.php:95
-msgid "Show recently viewed products"
-msgstr "Mostrar productos vistos recientemente"
-
-#: templates/settings.php:96
-msgid ""
-"Tracks the products a visitor views in a first-party cookie (product IDs "
-"only) and shows them again. Nothing is sent anywhere."
-msgstr ""
-"Realiza un seguimiento de los productos que ve un visitante en una cookie "
-"propia (solo ID de producto) y los muestra nuevamente. No se envía nada a "
-"ninguna parte."
-
-#: templates/settings.php:101
-msgid "On product pages"
-msgstr "En páginas de productos"
-
-#: templates/settings.php:102
-msgid "On the cart"
-msgstr "En el carrito"
-
-#: templates/settings.php:112
-msgid "Display"
-msgstr "Mostrar"
-
-#: templates/settings.php:115
-msgid "Products per block"
-msgstr "Productos por bloque"
-
-#: templates/settings.php:119
-msgid "Columns"
-msgstr "Columnas"
-
-#: templates/settings.php:123
-msgid "Only recommend products that are in stock"
-msgstr "Recomendar sólo productos que estén en stock."
-
-#: templates/settings.php:134
-msgid "Shortcodes"
-msgstr "Shortcodes"
-
-#: templates/settings.php:136
-msgid "Place a recommendation block anywhere:"
-msgstr "Coloque un bloque de recomendación en cualquier lugar:"
-
-#: templates/settings.php:137
-msgid "Place a recently viewed block anywhere:"
-msgstr "Coloque un bloque visto recientemente en cualquier lugar:"
 
 #: src/Admin/ProUpsell.php:84
 msgid "Wkrótce"
@@ -205,57 +60,91 @@ msgstr "Próximamente"
 msgid "Coming soon"
 msgstr "Próximamente"
 
-#. translators: %d: yearly price in PLN
-#: src/Admin/ProUpsell.php:89
-#, php-format
-msgid "od %d zł/rok"
-msgstr "desde %d zł/año"
-
 #. translators: 1: currency symbol, 2: yearly price
-#: src/Admin/ProUpsell.php:94
+#: src/Admin/ProUpsell.php:90
 #, php-format
 msgid "from %1$s%2$d/yr"
 msgstr "desde %1$s%2$d/año"
 
-#: src/Admin/ProUpsell.php:103
+#: src/Admin/ProUpsell.php:99
 msgid "Upgrade to PRO"
 msgstr "Mejora a PRO"
 
-#: src/Admin/ProUpsell.php:104
+#: src/Admin/ProUpsell.php:100
 msgid "Powiadom mnie"
 msgstr "Avísame"
 
-#: src/Admin/ProUpsell.php:104
+#: src/Admin/ProUpsell.php:100
 msgid "Get notified"
 msgstr "Avísame"
 
-#: src/Admin/ProUpsell.php:134
+#: src/Admin/ProUpsell.php:130
 msgid "Permission denied."
 msgstr "Permiso denegado."
 
 #. translators: %s: PRO edition name
-#: src/Admin/ProUpsell.php:164
+#: src/Admin/ProUpsell.php:160
 #, php-format
 msgid "Do more with %s"
 msgstr "Haz más con %s"
 
-#: src/Admin/ProUpsell.php:171
+#: src/Admin/ProUpsell.php:167
 msgid "Dismiss this notice"
 msgstr "Descartar este aviso"
 
-#: src/Admin/ProUpsell.php:188
+#: src/Admin/ProUpsell.php:184
 msgid "Unlock every PRO feature"
 msgstr "Desbloquea todas las funciones PRO"
 
-#: src/Admin/ProUpsell.php:201
+#: src/Admin/ProUpsell.php:197
 msgid "one licence, every PRO feature"
 msgstr "una licencia, todas las funciones PRO"
 
 #. translators: %s: PRO edition name
-#: src/Admin/ProUpsell.php:220
+#: src/Admin/ProUpsell.php:216
 #, php-format
 msgid "What %s adds"
 msgstr "Lo que añade %s"
+
+#: src/Admin/Settings.php:48 src/Admin/Settings.php:49
+#: templates/settings.php:58
+msgid "Pair recommendations"
+msgstr "Recomendaciones de Pair"
+
+#: src/Admin/Settings.php:165
+msgid "Same category (by popularity)"
+msgstr "Misma categoría (por popularidad)"
+
+#: src/Admin/Settings.php:166
+msgid "Shared tags"
+msgstr "Etiquetas compartidas"
+
+#: src/Admin/Settings.php:167
+msgid "Best sellers"
+msgstr "Los más vendidos"
+
+#: src/Admin/Settings.php:168
+msgid "Newest products"
+msgstr "Productos más nuevos"
+
+#: src/Admin/Settings.php:169
+msgid "Recently viewed by the shopper"
+msgstr "Visto recientemente por el comprador"
+
+#: src/Elementor/RecentlyViewedWidget.php:43
+msgid "Recently Viewed"
+msgstr "Visto recientemente"
+
+#: src/Elementor/RecentlyViewedWidget.php:81 src/Service/Texts.php:36
+#: templates/settings.php:120 templates/settings.php:135
+msgid "Recently viewed"
+msgstr "Visto recientemente"
+
+#: src/Elementor/RecentlyViewedWidget.php:87
+#: src/Elementor/RecommendationsWidget.php:87 templates/settings.php:90
+#: templates/settings.php:112 templates/settings.php:134
+msgid "Heading"
+msgstr "Título"
 
 #: src/Elementor/RecentlyViewedWidget.php:90
 #: src/Elementor/RecommendationsWidget.php:90
@@ -267,25 +156,34 @@ msgstr "Déjalo vacío para usar el valor predeterminado del plugin."
 msgid "Number of products"
 msgstr "Número de productos"
 
-#. Plugin Name of the plugin
-#: plogins-pair.php
-msgid "Pair - Product Recommendations for WooCommerce"
-msgstr "Pair - Product Recommendations for WooCommerce"
+#: src/Elementor/RecentlyViewedWidget.php:108
+#: src/Elementor/RecommendationsWidget.php:108 templates/settings.php:148
+msgid "Columns"
+msgstr "Columnas"
 
 #: src/Elementor/RecommendationsWidget.php:43
 msgid "Product Recommendations"
 msgstr "Recomendaciones de productos"
 
-#: src/Elementor/RecentlyViewedWidget.php:43
-msgid "Recently Viewed"
-msgstr "Visto recientemente"
-
 #: src/Elementor/RecommendationsWidget.php:81
 msgid "Recommendations"
 msgstr "Recomendaciones"
 
+#: src/Service/Texts.php:34 templates/settings.php:91
+msgid "You may also like"
+msgstr "También te puede gustar"
+
+#: src/Service/Texts.php:35 templates/settings.php:113
+msgid "Add these to your order"
+msgstr "Añade estos a tu pedido"
+
+#: templates/recommendations.php:27
+msgid "Recommended products"
+msgstr "Productos recomendados"
+
 #. translators: %s: the shortcode that places this block by hand.
 #: templates/settings.php:51
+#, php-format
 msgid ""
 "Your cart page uses the WooCommerce Cart block, which does not fire the "
 "classic cart hooks, so this block will not appear there. Switch the cart "
@@ -294,5 +192,108 @@ msgid ""
 msgstr ""
 "Tu página de carrito usa el bloque Carrito de WooCommerce, que no dispara "
 "los hooks del carrito clásico, así que este bloque no aparecerá ahí. Cambia "
-"la página de carrito al shortcode del carrito clásico o añade %s a la página"
-" de carrito en un bloque de shortcode."
+"la página de carrito al shortcode del carrito clásico o añade %s a la página "
+"de carrito en un bloque de shortcode."
+
+#: templates/settings.php:62
+msgid ""
+"Automatic product recommendations. Blocks are rendered with your theme's "
+"product cards, so they match your shop. Pick where they appear and how the "
+"products are chosen."
+msgstr ""
+"Recomendaciones automáticas de productos. Los bloques se representan con las "
+"tarjetas de producto de tu tema, para que coincidan con tu tienda. Elige "
+"dónde aparecen y cómo se eligen los productos."
+
+#: templates/settings.php:70
+msgid "Enable Pair on the storefront"
+msgstr "Habilitar Pair en la tienda"
+
+#: templates/settings.php:77
+msgid "Product page"
+msgstr "Página del producto"
+
+#: templates/settings.php:80
+msgid "Show \"You may also like\""
+msgstr "Mostrar \"También te puede gustar\""
+
+#: templates/settings.php:85 templates/settings.php:107
+msgid "How to choose products"
+msgstr "Cómo elegir productos"
+
+#: templates/settings.php:87
+msgid ""
+"Related uses the product's categories, ordered by popularity. Others use "
+"tags, best sellers, newest, or what the shopper recently viewed."
+msgstr ""
+"«Relacionados» usa las categorías del producto, ordenadas por popularidad. "
+"Otras opciones usan etiquetas, los más vendidos, lo más nuevo o lo que el "
+"comprador vio recientemente."
+
+#: templates/settings.php:98
+msgid "Cart"
+msgstr "Carrito"
+
+#: templates/settings.php:101
+msgid "Show cross-sell suggestions"
+msgstr "Mostrar sugerencias de venta cruzada"
+
+#: templates/settings.php:109
+msgid ""
+"Based on the categories of the items already in the cart, excluding those "
+"items."
+msgstr ""
+"Basado en las categorías de los artículos que ya están en el carrito, "
+"excluyendo esos artículos."
+
+#: templates/settings.php:123
+msgid "Show recently viewed products"
+msgstr "Mostrar productos vistos recientemente"
+
+#: templates/settings.php:124
+msgid ""
+"Tracks the products a visitor views in a first-party cookie (product IDs "
+"only) and shows them again. Nothing is sent anywhere."
+msgstr ""
+"Realiza un seguimiento de los productos que ve un visitante en una cookie "
+"propia (solo ID de producto) y los muestra nuevamente. No se envía nada a "
+"ninguna parte."
+
+#: templates/settings.php:129
+msgid "On product pages"
+msgstr "En páginas de productos"
+
+#: templates/settings.php:130
+msgid "On the cart"
+msgstr "En el carrito"
+
+#: templates/settings.php:141
+msgid "Display"
+msgstr "Mostrar"
+
+#: templates/settings.php:144
+msgid "Products per block"
+msgstr "Productos por bloque"
+
+#: templates/settings.php:152
+msgid "Only recommend products that are in stock"
+msgstr "Recomendar sólo productos que estén en stock."
+
+#: templates/settings.php:168
+msgid "Shortcodes"
+msgstr "Shortcodes"
+
+#: templates/settings.php:170
+msgid "Place a recommendation block anywhere:"
+msgstr "Coloque un bloque de recomendación en cualquier lugar:"
+
+#: templates/settings.php:171
+msgid "Place a recently viewed block anywhere:"
+msgstr "Coloque un bloque visto recientemente en cualquier lugar:"
+
+#~ msgid "Plogins Pair - Product Recommendations for WooCommerce"
+#~ msgstr "Plogins Pair - Recomendaciones de productos para WooCommerce"
+
+#, php-format
+#~ msgid "od %d zł/rok"
+#~ msgstr "desde %d zł/año"
