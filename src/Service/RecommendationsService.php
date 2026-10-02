@@ -124,10 +124,13 @@ final class RecommendationsService implements HasHooks
             (int) $s['count'],
             ! empty($s['in_stock_only']),
             $exclude,
+            false,
         );
 
         // Recently-viewed genuinely can be empty for a first-time visitor; that
-        // is fine, the block simply does not render.
+        // is fine, the block simply does not render. No fallback: topping it up
+        // with recent products labelled "Recently viewed" products the shopper
+        // never opened.
         $this->render($products, (string) $s['recently_heading'], (int) $s['columns'], 'recently', false);
     }
 
@@ -185,6 +188,7 @@ final class RecommendationsService implements HasHooks
             max(1, min(12, (int) $atts['count'])),
             ! empty($s['in_stock_only']),
             $exclude,
+            false,
         );
 
         return $this->capture($products, (string) $atts['heading'], (int) $atts['columns'], 'recently');

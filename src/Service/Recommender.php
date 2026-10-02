@@ -30,9 +30,11 @@ final class Recommender
     /**
      * @param array<int, int> $seedIds   product(s) driving the recommendation (viewed product, or cart items)
      * @param array<int, int> $excludeIds
+     * @param bool            $fallback   top up a short list with recent products; false for the
+     *                                    "Recently viewed" block, which must only show what was viewed
      * @return array<int, \WC_Product>
      */
-    public function recommend(string $strategy, array $seedIds, int $limit, bool $inStockOnly, array $excludeIds = []): array
+    public function recommend(string $strategy, array $seedIds, int $limit, bool $inStockOnly, array $excludeIds = [], bool $fallback = true): array
     {
         $limit   = max(1, min(12, $limit));
         $strategy = in_array($strategy, self::STRATEGIES, true) ? $strategy : 'related';
@@ -46,7 +48,7 @@ final class Recommender
             default       => $this->byTerms('product_cat', $this->categoryIds($seedIds), $exclude, $limit, $inStockOnly),
         };
 
-        if (count($products) < $limit) {
+        if ($fallback && count($products) < $limit) {
             $products = array_merge(
                 $products,
                 $this->byQuery(
