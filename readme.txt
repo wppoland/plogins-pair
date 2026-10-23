@@ -4,11 +4,11 @@ Tags: woocommerce, product recommendations, related products, recently viewed, c
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 1.1.7
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Automatic WooCommerce product recommendations: "You may also like", cart cross-sells and recently viewed. No manual setup, no layout shift.
+Show shoppers products that go with what they are viewing or buying, on the product page and the cart, picked automatically from your catalog.
 
 == Description ==
 
@@ -47,8 +47,8 @@ Every strategy falls back to recent products, so a block is never awkwardly empt
 * **Bug reports and feature requests**: [github.com/wppoland/plogins-pair/issues](https://github.com/wppoland/plogins-pair/issues)
 
 = Features =
-* Automatic "You may also like" block after the single product summary.
-* Automatic cross-sell suggestions under the cart, based on its contents.
+* Automatic "You may also like" block after the single product summary, optionally replacing WooCommerce's own related products so the page shows one grid.
+* Automatic cross-sell suggestions under the cart, based on its contents, on both the classic cart and the WooCommerce Cart block.
 * Recently viewed products block, on product pages and/or the cart.
 * Five selectable strategies per block (category, tags, best sellers, newest, recently viewed) with a recent-products fallback.
 * Configurable number of products (1 to 12) and columns (1 to 6).
@@ -72,7 +72,7 @@ measure what the blocks earn.
                                                 Free   PRO
     ------------------------------------------------------
     "You may also like" on the product page      yes   yes
-    Cross-sell under the classic cart            yes   yes
+    Cross-sell under the cart                    yes   yes
     Recently viewed block                        yes   yes
     Five strategies, chosen per block            yes   yes
     Shortcodes and Elementor widgets             yes   yes
@@ -127,7 +127,10 @@ No. Blocks render with your theme's product-card markup and a small stylesheet, 
 Yes. Turn the product-page, cart and recently-viewed blocks on or off independently, and use the shortcodes to place a block anywhere.
 
 = Does the cart block work with the WooCommerce Cart block? =
-Not automatically. The cart placements attach to the classic cart template, which the WooCommerce Cart block does not use. If your cart page is built with the Cart block, the settings screen says so and you can add `[pair_recommendations]` or `[pair_recently_viewed]` to that page in a shortcode block instead. The product-page block is unaffected.
+Yes. On a cart page built with the Cart block, the cross-sell and recently viewed placements appear right after the block, the same as under the classic cart. If you already added `[pair_recommendations]` or `[pair_recently_viewed]` to that page yourself, Pair skips the automatic copy of that placement so it does not show twice. The suggestions are worked out when the page loads, so they do not change while the shopper edits the cart until the page is reloaded.
+
+= Will the product page show two "related" grids? =
+No. "Replace WooCommerce related products" on the settings screen hides WooCommerce's own related products while Pair's product-page block is on. It is on by default for new installs. Stores that installed Pair before 1.2.0 keep WooCommerce's related products until they tick the box.
 
 = Does this plugin work on WordPress Multisite? =
 
@@ -138,6 +141,8 @@ Yes. This plugin is compatible with WordPress Multisite. Network activate it or 
 1. The "You may also like" block on a product page.
 2. Cross-sell suggestions under the cart.
 3. The sectioned Pair recommendations settings screen.
+4. One recommendation grid on the product page, with WooCommerce's own related products replaced.
+5. Cross-sell suggestions under the WooCommerce Cart block.
 
 == External Services ==
 
@@ -148,6 +153,14 @@ This plugin does not connect to any external services. Recommendations are compu
 Plogins Pair is fully translatable and ships the `plogins-pair.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.2.1 =
+* Fixed: "Replace WooCommerce related products" now also hides the Related products block in block themes such as Twenty Twenty-Five, not only the classic theme hook, so the product page shows one grid.
+
+= 1.2.0 =
+* Added: "Replace WooCommerce related products". With Pair's product-page block on, WooCommerce's own related products no longer render underneath it, so the page shows one recommendation grid instead of two. On by default for new installs; stores updating from an earlier version keep their current page until they tick the box.
+* Added: cart cross-sells and the cart recently viewed block now appear on a cart page built with the WooCommerce Cart block, not only on the classic cart. A placement already added to the page by shortcode is not repeated.
+* The stylesheet now loads only on product and cart pages, and on any page where a Pair shortcode, widget or block renders.
 
 = 1.1.7 =
 * Fixed: the "Recently viewed" block, its shortcode and its Elementor widget were topped up with the newest products, so a first-time visitor saw a "Recently viewed" row of products they had never opened. The block now lists only viewed products and stays hidden when there are none. Recommendation blocks keep their fallback.

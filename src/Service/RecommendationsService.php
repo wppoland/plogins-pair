@@ -38,16 +38,25 @@ final class RecommendationsService implements HasHooks
 
         if (! empty($s['show_on_single'])) {
             add_action('woocommerce_after_single_product_summary', [$this, 'renderSingle'], 15);
+
+            if (! empty($s['replace_related'])) {
+                remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20);
+                // Block themes render related products from the template, not the hook.
+                add_filter('render_block_woocommerce/product-collection', [$this, 'hideRelatedBlock'], 10, 2);
+                add_filter('render_block_woocommerce/related-products', [$this, 'hideRelatedBlock'], 10, 2);
+            }
         }
 
         if (! empty($s['show_recently_viewed']) && ! empty($s['recently_on_single'])) {
             add_action('woocommerce_after_single_product_summary', [$this, 'renderRecentlyViewed'], 16);
         }
 
-        // woocommerce_after_cart comes from the classic cart template, so a
-        // store running the Cart block gets nothing here however the boxes are
-        // ticked. The settings screen now warns about that and points at the
-        // shortcodes, which do work inside a block page.
+        // woocommerce_after_cart is fired only by the classic cart template;
+        // the Cart block gets the same output appended after it instead.
+        if (! empty($s['show_on_cart']) || (! empty($s['show_recently_viewed']) && ! empty($s['recently_on_cart']))) {
+            add_filter('render_block_woocommerce/cart', [$this, 'appendToCartBlock']);
+        }
+
         if (! empty($s['show_on_cart'])) {
             add_action('woocommerce_after_cart', [$this, 'renderCart']);
         }
@@ -57,10 +66,65 @@ final class RecommendationsService implements HasHooks
         }
     }
 
+    /**
+     * Load the stylesheet in the head only where the hooked blocks render.
+     * Shortcodes, widgets and the Cart block append enqueue it themselves.
+     */
     public function enqueueAssets(): void
     {
-        wp_register_style('pair', PAIR_URL . 'assets/css/pair.css', [], VERSION);
-        wp_enqueue_style('pair');
+        if (is_product() || is_cart()) {
+            $this->enqueueStyle();
+        }
+    }
+
+    /**
+     * Append the cart placements after the WooCommerce Cart block. A placement
+     * the merchant already added to the page by shortcode is skipped, so it
+     * never shows twice.
+     */
+    public function appendToCartBlock(string $html): string
+    {
+        $s       = $this->settings();
+        $content = (string) get_post_field('post_content', (int) get_queried_object_id());
+
+        ob_start();
+        if (! empty($s['show_on_cart']) && ! has_shortcode($content, 'pair_recommendations')) {
+            $this->renderCart();
+        }
+        if (! empty($s['show_recently_viewed']) && ! empty($s['recently_on_cart']) && ! has_shortcode($content, 'pair_recently_viewed')) {
+            $this->renderRecentlyViewed();
+        }
+        $extra = (string) ob_get_clean();
+
+        if ($extra !== '') {
+            $this->enqueueStyle();
+        }
+
+        return $html . $extra;
+    }
+
+    /**
+     * Drop the block theme's related products on a product page: the legacy
+     * Related Products block, or a Product Collection set to "Related".
+     *
+     * @param array<string, mixed> $block
+     */
+    public function hideRelatedBlock(string $html, array $block): string
+    {
+        if (! is_product()) {
+            return $html;
+        }
+
+        $collection = $block['attrs']['collection'] ?? '';
+        $related    = ($block['blockName'] ?? '') === 'woocommerce/related-products'
+            || $collection === 'woocommerce/product-collection/related';
+
+        return $related ? '' : $html;
+    }
+
+    private function enqueueStyle(): void
+    {
+        wp_enqueue_style('pair', PAIR_URL . 'assets/css/pair.css', [], VERSION);
     }
 
     public function renderSingle(): void
@@ -223,7 +287,7 @@ final class RecommendationsService implements HasHooks
     /** @param array<int, \WC_Product> $products */
     private function capture(array $products, string $heading, int $columns, string $context): string
     {
-        $this->enqueueAssets();
+        $this->enqueueStyle();
         ob_start();
         $this->render($products, $heading, $columns, $context);
 

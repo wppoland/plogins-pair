@@ -25,6 +25,8 @@ final class Migrator
             return;
         }
 
+        $this->keepRelatedProductsOnExistingInstalls();
+
         if (get_option(self::OPTION_SETTINGS, null) === null) {
             /** @var array<string, mixed> $defaults */
             $defaults = require PAIR_DIR . 'config/defaults.php';
@@ -34,6 +36,23 @@ final class Migrator
         $this->clearFrozenHeadings();
 
         update_option(self::OPTION_VERSION, VERSION);
+    }
+
+    /**
+     * "Replace WooCommerce related products" defaults to on, but a store that
+     * already ran Pair before the setting existed keeps WooCommerce's related
+     * products until the merchant opts in. A stored option without the key
+     * predates the setting; a fresh install is seeded from the defaults later.
+     */
+    private function keepRelatedProductsOnExistingInstalls(): void
+    {
+        $stored = get_option(self::OPTION_SETTINGS, null);
+        if (! is_array($stored) || array_key_exists('replace_related', $stored)) {
+            return;
+        }
+
+        $stored['replace_related'] = false;
+        update_option(self::OPTION_SETTINGS, $stored);
     }
 
     /**
