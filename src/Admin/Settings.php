@@ -103,6 +103,7 @@ final class Settings implements HasHooks
             'show_on_single'       => ! empty($raw['show_on_single']),
             'single_strategy'      => $strategy($raw['single_strategy'] ?? 'related'),
             'single_heading'       => $text($raw['single_heading'] ?? ''),
+            'replace_related'      => ! empty($raw['replace_related']),
             'show_on_cart'         => ! empty($raw['show_on_cart']),
             'cart_strategy'        => $strategy($raw['cart_strategy'] ?? 'related'),
             'cart_heading'         => $text($raw['cart_heading'] ?? ''),
@@ -124,34 +125,9 @@ final class Settings implements HasHooks
 
         $s           = $this->settings();
         $strategies  = $this->strategyLabels();
-        $cartIsBlock = $this->cartUsesBlock();
         $pro         = $this->proUpsell();
 
         require PAIR_DIR . 'templates/settings.php';
-    }
-
-    /**
-     * True when the cart page is built with the WooCommerce Cart block.
-     *
-     * Both cart placements hang on woocommerce_after_cart, which only the
-     * classic cart template fires. A merchant on a block cart could tick
-     * "Show cross-sell suggestions", save, and get an empty cart page with no
-     * hint why, so the settings screen says it out loud instead.
-     */
-    private function cartUsesBlock(): bool
-    {
-        if (! function_exists('wc_get_page_id')) {
-            return false;
-        }
-
-        $pageId = wc_get_page_id('cart');
-        if ($pageId <= 0) {
-            return false;
-        }
-
-        $content = get_post_field('post_content', $pageId);
-
-        return is_string($content) && has_block('woocommerce/cart', $content);
     }
 
     /**
