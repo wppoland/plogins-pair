@@ -4,7 +4,7 @@ Tags: woocommerce, product recommendations, related products, recently viewed, c
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -151,6 +151,9 @@ This plugin does not connect to any external services. Recommendations are compu
 Plogins Pair is fully translatable and ships the `plogins-pair.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.2.1 =
+* Fixed: "Replace WooCommerce related products" now also hides the Related products block in block themes such as Twenty Twenty-Five, not only the classic theme hook, so the product page shows one grid.
 
 = 1.2.0 =
 * Added: "Replace WooCommerce related products". With Pair's product-page block on, WooCommerce's own related products no longer render underneath it, so the page shows one recommendation grid instead of two. On by default for new installs; stores updating from an earlier version keep their current page until they tick the box.

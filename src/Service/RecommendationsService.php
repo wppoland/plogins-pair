@@ -41,6 +41,9 @@ final class RecommendationsService implements HasHooks
 
             if (! empty($s['replace_related'])) {
                 remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20);
+                // Block themes render related products from the template, not the hook.
+                add_filter('render_block_woocommerce/product-collection', [$this, 'hideRelatedBlock'], 10, 2);
+                add_filter('render_block_woocommerce/related-products', [$this, 'hideRelatedBlock'], 10, 2);
             }
         }
 
@@ -98,6 +101,25 @@ final class RecommendationsService implements HasHooks
         }
 
         return $html . $extra;
+    }
+
+    /**
+     * Drop the block theme's related products on a product page: the legacy
+     * Related Products block, or a Product Collection set to "Related".
+     *
+     * @param array<string, mixed> $block
+     */
+    public function hideRelatedBlock(string $html, array $block): string
+    {
+        if (! is_product()) {
+            return $html;
+        }
+
+        $collection = $block['attrs']['collection'] ?? '';
+        $related    = ($block['blockName'] ?? '') === 'woocommerce/related-products'
+            || $collection === 'woocommerce/product-collection/related';
+
+        return $related ? '' : $html;
     }
 
     private function enqueueStyle(): void
