@@ -22,6 +22,9 @@ return [
     'show_on_single'       => true,
     'single_strategy'      => 'related',
     'single_heading'       => '',
+    // Unhook WooCommerce's own related products so the page does not show two
+    // grids. Migrator stores false for installs that predate the setting.
+    'replace_related'      => true,
 
     // Cart cross-sell suggestions.
     'show_on_cart'         => true,

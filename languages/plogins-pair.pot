@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pair - Product Recommendations for WooCommerce 1.1.2\n"
+"Project-Id-Version: Pair - Product Recommendations for WooCommerce 1.2.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/plogins-pair\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-08T13:19:30+00:00\n"
+"POT-Creation-Date: 2026-10-23T11:54:01+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: plogins-pair\n"
@@ -43,83 +43,75 @@ msgstr ""
 msgid "Plogins Pair requires WooCommerce to be active."
 msgstr ""
 
-#: src/Admin/ProUpsell.php:84
-msgid "Wkrótce"
-msgstr ""
-
-#: src/Admin/ProUpsell.php:84
+#: src/Admin/ProUpsell.php:92
 msgid "Coming soon"
 msgstr ""
 
 #. translators: 1: currency symbol, 2: yearly price
-#: src/Admin/ProUpsell.php:90
+#: src/Admin/ProUpsell.php:98
 #, php-format
 msgid "from %1$s%2$d/yr"
 msgstr ""
 
-#: src/Admin/ProUpsell.php:99
+#: src/Admin/ProUpsell.php:107
 msgid "Upgrade to PRO"
 msgstr ""
 
-#: src/Admin/ProUpsell.php:100
-msgid "Powiadom mnie"
-msgstr ""
-
-#: src/Admin/ProUpsell.php:100
+#: src/Admin/ProUpsell.php:108
 msgid "Get notified"
 msgstr ""
 
-#: src/Admin/ProUpsell.php:130
+#: src/Admin/ProUpsell.php:138
 msgid "Permission denied."
 msgstr ""
 
 #. translators: %s: PRO edition name
-#: src/Admin/ProUpsell.php:160
+#: src/Admin/ProUpsell.php:168
 #, php-format
 msgid "Do more with %s"
 msgstr ""
 
-#: src/Admin/ProUpsell.php:167
+#: src/Admin/ProUpsell.php:175
 msgid "Dismiss this notice"
 msgstr ""
 
-#: src/Admin/ProUpsell.php:184
+#: src/Admin/ProUpsell.php:197
 msgid "Unlock every PRO feature"
 msgstr ""
 
-#: src/Admin/ProUpsell.php:197
+#: src/Admin/ProUpsell.php:210
 msgid "one licence, every PRO feature"
 msgstr ""
 
 #. translators: %s: PRO edition name
-#: src/Admin/ProUpsell.php:216
+#: src/Admin/ProUpsell.php:229
 #, php-format
 msgid "What %s adds"
 msgstr ""
 
 #: src/Admin/Settings.php:48
 #: src/Admin/Settings.php:49
-#: templates/settings.php:58
+#: templates/settings.php:37
 msgid "Pair recommendations"
 msgstr ""
 
-#: src/Admin/Settings.php:165
+#: src/Admin/Settings.php:141
 msgid "Same category (by popularity)"
 msgstr ""
 
-#: src/Admin/Settings.php:166
+#: src/Admin/Settings.php:142
 msgid "Shared tags"
 msgstr ""
 
-#: src/Admin/Settings.php:167
+#: src/Admin/Settings.php:143
 msgid "Best sellers"
 msgstr ""
 
-#: src/Admin/Settings.php:168
+#: src/Admin/Settings.php:144
 msgid "Newest products"
 msgstr ""
 
-#: src/Admin/Settings.php:169
+#: src/Admin/Settings.php:145
 msgid "Recently viewed by the shopper"
 msgstr ""
 
@@ -129,16 +121,16 @@ msgstr ""
 
 #: src/Elementor/RecentlyViewedWidget.php:81
 #: src/Service/Texts.php:36
-#: templates/settings.php:120
-#: templates/settings.php:135
+#: templates/settings.php:102
+#: templates/settings.php:116
 msgid "Recently viewed"
 msgstr ""
 
 #: src/Elementor/RecentlyViewedWidget.php:87
 #: src/Elementor/RecommendationsWidget.php:87
-#: templates/settings.php:90
-#: templates/settings.php:112
-#: templates/settings.php:134
+#: templates/settings.php:69
+#: templates/settings.php:94
+#: templates/settings.php:115
 msgid "Heading"
 msgstr ""
 
@@ -154,7 +146,7 @@ msgstr ""
 
 #: src/Elementor/RecentlyViewedWidget.php:108
 #: src/Elementor/RecommendationsWidget.php:108
-#: templates/settings.php:148
+#: templates/settings.php:129
 msgid "Columns"
 msgstr ""
 
@@ -167,12 +159,12 @@ msgid "Recommendations"
 msgstr ""
 
 #: src/Service/Texts.php:34
-#: templates/settings.php:91
+#: templates/settings.php:70
 msgid "You may also like"
 msgstr ""
 
 #: src/Service/Texts.php:35
-#: templates/settings.php:113
+#: templates/settings.php:95
 msgid "Add these to your order"
 msgstr ""
 
@@ -180,85 +172,87 @@ msgstr ""
 msgid "Recommended products"
 msgstr ""
 
-#. translators: %s: the shortcode that places this block by hand.
-#: templates/settings.php:51
-#, php-format
-msgid "Your cart page uses the WooCommerce Cart block, which does not fire the classic cart hooks, so this block will not appear there. Switch the cart page to the classic cart shortcode, or add %s to the cart page in a shortcode block."
-msgstr ""
-
-#: templates/settings.php:62
+#: templates/settings.php:41
 msgid "Automatic product recommendations. Blocks are rendered with your theme's product cards, so they match your shop. Pick where they appear and how the products are chosen."
 msgstr ""
 
-#: templates/settings.php:70
+#: templates/settings.php:49
 msgid "Enable Pair on the storefront"
 msgstr ""
 
-#: templates/settings.php:77
+#: templates/settings.php:56
 msgid "Product page"
 msgstr ""
 
-#: templates/settings.php:80
+#: templates/settings.php:59
 msgid "Show \"You may also like\""
 msgstr ""
 
-#: templates/settings.php:85
-#: templates/settings.php:107
+#: templates/settings.php:64
+#: templates/settings.php:89
 msgid "How to choose products"
 msgstr ""
 
-#: templates/settings.php:87
+#: templates/settings.php:66
 msgid "Related uses the product's categories, ordered by popularity. Others use tags, best sellers, newest, or what the shopper recently viewed."
 msgstr ""
 
-#: templates/settings.php:98
+#: templates/settings.php:73
+msgid "Replace WooCommerce related products"
+msgstr ""
+
+#: templates/settings.php:74
+msgid "Hides the \"Related products\" grid WooCommerce adds below the product, so the page shows one recommendation block instead of two. Turn it off to keep both."
+msgstr ""
+
+#: templates/settings.php:81
 msgid "Cart"
 msgstr ""
 
-#: templates/settings.php:101
+#: templates/settings.php:84
 msgid "Show cross-sell suggestions"
 msgstr ""
 
-#: templates/settings.php:109
+#: templates/settings.php:91
 msgid "Based on the categories of the items already in the cart, excluding those items."
 msgstr ""
 
-#: templates/settings.php:123
+#: templates/settings.php:105
 msgid "Show recently viewed products"
 msgstr ""
 
-#: templates/settings.php:124
+#: templates/settings.php:106
 msgid "Tracks the products a visitor views in a first-party cookie (product IDs only) and shows them again. Nothing is sent anywhere."
 msgstr ""
 
-#: templates/settings.php:129
+#: templates/settings.php:111
 msgid "On product pages"
 msgstr ""
 
-#: templates/settings.php:130
+#: templates/settings.php:112
 msgid "On the cart"
 msgstr ""
 
-#: templates/settings.php:141
+#: templates/settings.php:122
 msgid "Display"
 msgstr ""
 
-#: templates/settings.php:144
+#: templates/settings.php:125
 msgid "Products per block"
 msgstr ""
 
-#: templates/settings.php:152
+#: templates/settings.php:133
 msgid "Only recommend products that are in stock"
 msgstr ""
 
-#: templates/settings.php:168
+#: templates/settings.php:149
 msgid "Shortcodes"
 msgstr ""
 
-#: templates/settings.php:170
+#: templates/settings.php:151
 msgid "Place a recommendation block anywhere:"
 msgstr ""
 
-#: templates/settings.php:171
+#: templates/settings.php:152
 msgid "Place a recently viewed block anywhere:"
 msgstr ""
