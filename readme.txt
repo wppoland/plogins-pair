@@ -8,7 +8,7 @@ Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Automatic WooCommerce product recommendations: "You may also like", cart cross-sells and recently viewed. No manual setup, no layout shift.
+Show shoppers products that go with what they are viewing or buying, on the product page and the cart, picked automatically from your catalog.
 
 == Description ==
 
@@ -141,6 +141,8 @@ Yes. This plugin is compatible with WordPress Multisite. Network activate it or 
 1. The "You may also like" block on a product page.
 2. Cross-sell suggestions under the cart.
 3. The sectioned Pair recommendations settings screen.
+4. One recommendation grid on the product page, with WooCommerce's own related products replaced.
+5. Cross-sell suggestions under the WooCommerce Cart block.
 
 == External Services ==
 
