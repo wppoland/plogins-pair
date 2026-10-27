@@ -64,14 +64,21 @@ Every strategy falls back to recent products, so a block is never awkwardly empt
 
 == Pair PRO ==
 
-Pair PRO is a separate paid plugin that works on top of Pair. It adds:
+Pair PRO is a separate paid plugin that extends Pair:
 
-* Frequently bought together
-* Bundle discount
-* Manual curation
-* Category rules
-* A/B testing
-* Recommendation analytics
+| Feature | Free | Pro |
+|:--- |:---:|:---:|
+| You may also like | Yes | Yes |
+| Cart cross-sells | Yes | Yes |
+| Recently viewed | Yes | Yes |
+| Five strategies | Yes | Yes |
+| Count and columns | Yes | Yes |
+| Frequently bought together | - | Yes |
+| Bundle discount | - | Yes |
+| Manual curation | - | Yes |
+| Category rules | - | Yes |
+| A/B testing | - | Yes |
+| Recommendation analytics | - | Yes |
 
 The free edition is not a trial and its features stay available without a time limit.
 
