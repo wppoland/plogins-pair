@@ -4,7 +4,7 @@ Tags: woocommerce, product recommendations, related products, recently viewed, c
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 1.2.2
+Stable tag: 1.2.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -64,21 +64,24 @@ Every strategy falls back to recent products, so a block is never awkwardly empt
 
 == Pair PRO ==
 
-Pair PRO is a separate paid plugin that extends Pair:
+Pair PRO is a separate paid plugin that extends Pair.
 
-| Feature | Free | Pro |
-|:--- |:---:|:---:|
-| You may also like | Yes | Yes |
-| Cart cross-sells | Yes | Yes |
-| Recently viewed | Yes | Yes |
-| Five strategies | Yes | Yes |
-| Count and columns | Yes | Yes |
-| Frequently bought together | - | Yes |
-| Bundle discount | - | Yes |
-| Manual curation | - | Yes |
-| Category rules | - | Yes |
-| A/B testing | - | Yes |
-| Recommendation analytics | - | Yes |
+Included in Pair:
+
+* You may also like
+* Cart cross-sells
+* Recently viewed
+* Five strategies
+* Count and columns
+
+Pair PRO adds:
+
+* Frequently bought together
+* Bundle discount
+* Manual curation
+* Category rules
+* A/B testing
+* Recommendation analytics
 
 The free edition is not a trial and its features stay available without a time limit.
 
@@ -139,6 +142,10 @@ This plugin does not connect to any external services. Recommendations are compu
 Plogins Pair is fully translatable and ships the `plogins-pair.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.2.3 =
+* The Upgrade to PRO links open the pricing page in the admin's language where plogins.com has one, and tell plogins.com which plugin the visit came from (utm_source, utm_medium and utm_campaign in the link). Nothing is sent from your site.
+* Readme: the PRO section lists what the free plugin includes and what the paid edition adds as two lists, which WordPress.org can display (it does not display tables).
 
 = 1.2.2 =
 * Readme only: a PRO section with links to the paid edition.
