@@ -4,7 +4,7 @@ Tags: woocommerce, product recommendations, related products, recently viewed, c
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 1.2.4
+Stable tag: 1.2.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -142,6 +142,9 @@ This plugin does not connect to any external services. Recommendations are compu
 Plogins Pair is fully translatable and ships the `plogins-pair.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.2.5 =
+* Plugins list shows a shortcut to the settings screen.
 
 = 1.2.4 =
 * Fixed: deleting the plugin on a multisite network now removes its settings from every site, not only the main one.
